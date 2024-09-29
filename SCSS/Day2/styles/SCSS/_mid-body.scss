@@ -1,0 +1,59 @@
+.btats {
+  .body-container {
+      @include flex(row, space-between);
+      @include add-margin(11px, 0, 11px, 23px);
+      
+      .contacts {
+          @include flex(column);
+          width: 66.4%;
+          gap: rem-calc(22px);
+          .contact {
+              @include flex(row, null, center);
+              border: 0.5px solid $contact-border;
+              border-radius: 10px;
+              @include add-padding(6.5px, 9.3px, 6.5px, 9.3px);
+
+              .left-side {
+                width: 50%;
+                @include flex(row, null, center);
+              }
+
+              .right-side {
+                width: 50%;
+                @include flex(row, space-between);
+                gap: rem-calc(5px);
+              }
+
+              .contact-info {
+                width: 100%;
+                @include flex(column, flex-start);
+                gap: rem-calc(5px);
+                text-align: center;
+
+                .contact-name {
+                  @include typography(20px, 600, 24.2px, $name);
+                  @include link-hover($name);
+                }
+
+                .contact-title {
+                  @include typography(15px, 500, 18.15px, $contact-title);
+                  @include link-hover($contact-title);
+                }
+              }
+ 
+              .contact-email {
+                @include typography(18px, 600, 21.78px, $contact-email);
+                @include link-hover($contact-email);
+                width: 50%;
+                justify-content: flex-start;
+              }
+
+              .contact-phone {
+                @include typography(18px, 500, 21.78px, $contact-phone);
+                @include link-hover($contact-phone);
+              }
+          } 
+      }  
+
+  }
+}

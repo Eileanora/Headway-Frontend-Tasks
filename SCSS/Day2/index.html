@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./styles/CSS/styles.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+</head>
+<body>
+  <main>
+    <aside>
+      <header>
+        <h1 class="title">Thien</h1>
+        <div class="full-info">
+          <figure>
+            <img src="./assets/images/avatar-boy-small.png" alt="avatar">
+          </figure>
+          <p class="contact-name">Nguyen Si Thien</p>
+          <p class="contact-email">nsthien2109@gmail.com</p>
+        </div>
+      </header> <!-- header -->
+      <div class="additional-info">
+        <div class="additional-info-item">
+          <img src="./assets/images/calendar-line.png" alt="calendar">
+          <p>21-09-2001</p>
+        </div> <!-- additional-info-item -->
+        <div class="additional-info-item">
+          <img src="./assets/images/phone-empty.png" alt="phone">
+          <p>0705459542</p>
+        </div> <!-- additional-info-item -->
+        <div class="additional-info-item">
+          <img src="./assets/images/location.png" alt="location">
+          <p>Ngu Hanh Son, Da Nang</p>
+        </div> <!-- additional-info-item -->
+      </div> <!-- additional-info -->
+    </aside>
+    
+    <section class="btats">
+      <header id="mid-header">
+        <div class="header-container">
+          <h2 class="title">Address Book</h2>
+          <div class="right-side">
+            <div class="filter-icon">
+              <img src="./assets/images/filter.png" alt="filter">
+            </div>
+            <div class="wrapper btn-add">
+              <img src="./assets/images/circle-plus.png" alt="add">
+              <span>New contact</span>
+            </div> <!-- btn-add -->
+          </div> <!-- right-side -->
+        </div> <!-- header-container -->
+      </header>
+      
+      <div class="body-container">
+        <section class="contacts">
+          <div class="contact">
+            <div class="left-side">
+              <figure class="contact-avatar">
+                <img src="./assets/images/email-icon.png" alt="avatar">
+              </figure> <!-- contact-avatar -->
+              <div class="contact-info">
+                <h3 class="contact-name">John Doe</h3>
+                <p class="contact-title">Java Developer</p>
+              </div> <!-- contact-info -->
+            </div> <!-- left-side -->
+            <div class="right-side">
+              <p class="contact-phone">0706312495</p>
+              <p class="contact-email">jhondavid@gmail.com</p>
+            </div> <!-- right-side -->
+          </div> <!-- contact -->
+
+          <div class="contact">
+            <div class="left-side">
+              <figure class="contact-avatar">
+                <img src="./assets/images/avatar-girl-small.png" alt="avatar">
+              </figure> <!-- contact-avatar -->
+              <div class="contact-info">
+                <h3 class="contact-name">Maria Onichan</h3>
+                <p class="contact-title">Best friend</p>
+              </div> <!-- contact-info -->
+            </div> <!-- left-side -->
+            <div class="right-side">
+              <p class="contact-phone">0902362954</p>
+              <p class="contact-email">onichan@gmail.com</p>
+            </div> <!-- right-side -->
+          </div> <!-- contact -->
+        </section> <!-- contacts -->
+
+        <section class="contact-details">
+          <header class="contact-details-header">
+            <figure>
+              <img src="./assets/images/avatar-girl-big.png" alt="avatar">
+            </figure>
+            <p class="title">Maria Onichan</p>
+            <p class="contact-title">Best friend</p>
+          </header>
+
+          <div class="contact-details-sub-nav">
+            <span class="active">Contact</span>
+            <span>Work</span>
+            <span>About</span>
+          </div>
+
+          <div class="contact-details-body">
+            <div class="contact-details-content">
+              <div class="contact-details-txt">
+                <p class="contact-details-label">Phone Number</p>
+                <p class="contact-details-value">0902362954</p>
+              </div> <!-- contact-details-txt -->
+              <figure class="contact-details-icon-phone">
+                <img src="./assets/images/phone-green.png" alt="phone">
+              </figure>
+            </div> <!-- contact-details-content -->
+            <div class="contact-details-content">
+              <div class="contact-details-txt">
+                <p class="contact-details-label">Email Address</p>
+                <p class="contact-details-value">onichan@gmail.com</p>
+              </div> <!-- contact-details-txt -->
+              <figure class="contact-details-icon-mail">
+                <img src="./assets/images/mail-unread-fill.png" alt="mail">
+              </figure>
+            </div> <!-- contact-details-content -->
+            <div class="contact-details-content">
+              <div class="contact-details-txt">
+                <p class="contact-details-label">Chat</p>
+                <p class="contact-details-value">marichan</p>
+              </div> <!-- contact-details-txt -->
+              <figure class="contact-details-icon-msg">
+                <img src="./assets/images/message.png" alt="chat">
+              </figure>
+            </div> <!-- contact-details-content -->
+          </div> <!-- contact-details-body -->
+        </section> <!-- contact-details -->
+      </div>
+
+    </section> <!-- section -->
+  </main>
+
+  <script>
+    for(var i = 0; i < 6; i++){
+      $(".contacts").append($(".contact").first().clone());
+    }
+  </script>
+</body>
+</html>

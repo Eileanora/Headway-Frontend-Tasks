@@ -1,0 +1,47 @@
+/* import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap'); /* jua */
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap'); /* inter */
+
+/* colors */
+$black: #000000;
+$lt-gray: #7C7C7C;
+$mdr-gray: #636363;
+$dr-gray: #696969;
+$green: #44DE6FF0;
+$dk-green: #007521;
+$lt-green: #89F2A6A8;
+$lt-orange: #F2E189A8;
+$lt-blue: #7FD1FFA8;
+
+$border-color: #9A9A9A17;
+$name: $black;
+/* aside */
+$additional-info-item: $lt-gray;
+
+/* section header */
+$add-info-bg: #55C875;
+$add-info-text: #303030;
+$filter-bg: #D9D9D994;
+
+/* contacts */
+$contact-email: $dr-gray;
+$contact-phone: $black;
+$contact-title: $mdr-gray;
+$contact-border: #8989896E;
+
+/* contact-details */
+$sub-nav-bg: #EEEEEE;
+$sub-nav: #555555;
+$sub-nav-active-bg: $green;
+$sub-nav-active: $dk-green;
+$title: $lt-gray;
+$value: $black;
+
+
+/*--------------------------------Fonts--------------------------------*/
+$font-family-jua: 'Jua', sans-serif;
+$font-family-inter: 'Inter', sans-serif;
+
+$title-font: $font-family-jua;
+$body-font: $font-family-inter;
+$font-size: 16px;

@@ -1,0 +1,8 @@
+@import 'reset', 'variables', 'mixins', 'functions', 'extends', 'left-aside', 'right-aside', 'mid-header', 'mid-body';
+body {
+    font-family: $body-font;
+}
+
+main {
+    @include flex(row);
+}
