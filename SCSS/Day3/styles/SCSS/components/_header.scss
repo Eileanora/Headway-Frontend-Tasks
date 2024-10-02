@@ -1,0 +1,46 @@
+.header {
+  background-image: url(/assets/images/mobile/banner.jpg);
+  background-size:cover;
+  background-color: pink;
+  @include add-padding(36px, 0, 36px, 0);
+}
+
+.header-top {
+  @include flex(row, space-between, center);
+}
+
+.header-body {
+  @include flex(column, space-between, center);
+  margin-top: rem-calc(36px);
+
+  h1 {
+    @include typography(38px, 900, 48.48px, $white);
+    text-align: center;
+    margin-bottom: rem-calc(18px);
+  }
+
+  .header-desc {
+    @include typography(18px, 500, 30px, $white);
+    text-align: center;
+    margin-bottom: rem-calc(36px);
+  }
+
+  .header-btn {
+    @extend %btn;
+    background-color: $btn-reserve-color;
+  }
+
+  .arrow {
+    position: absolute;
+    left: 7.6%;
+    bottom: 3%;
+  }
+
+  .header-scroll-down {
+    margin-top: rem-calc(92px);
+    @include flex(column, center, center);
+    p {
+      @include typography(17px, 700, 18.02px, $white);
+    }
+  }  
+}

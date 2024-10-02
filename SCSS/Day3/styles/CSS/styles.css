@@ -1,0 +1,396 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html, body, div, span, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, code, em, img, small, strike, strong, sub, sup, tt, b, u, i, ol, ul, li, fieldset, form, label, table, caption, tbody, tfoot, thead, tr, th, td, main, canvas, embed, footer, header, nav, section, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: none;
+     -moz-text-size-adjust: none;
+          text-size-adjust: none;
+}
+
+footer, header, nav, section, main {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+/*--------------------------------------colors------------------------------------------------*/
+/* colors */
+/* header */
+/*---------------------------------------fonts------------------------------------------------*/
+@font-face {
+  font-family: "Lama sans";
+  src: url(/assets/fonts/Lama-rounded/Web/Expanded/LamaRounded-RegularExpanded.woff2);
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Lama sans";
+  src: url(/assets/fonts/Lama-rounded/Web/Expanded/LamaRounded-BlackExpanded.woff2);
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Lama sans";
+  src: url(/assets/fonts/Lama-rounded/Web/Expanded/LamaRounded-MediumExpanded.woff2);
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Lama sans";
+  src: url(/assets/fonts/Lama-rounded/Web/Expanded/LamaRounded-BoldExpanded.woff2);
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Lama sans standard";
+  src: url(/assets/fonts/Lama-rounded/Web/Standard/LamaRounded-Regular.woff2);
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Lama sans standard";
+  src: url(/assets/fonts/Lama-rounded/Web/Standard/LamaRounded-Medium.woff2);
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Lama sans standard";
+  src: url(/assets/fonts/Lama-rounded/Web/Standard/LamaRounded-Bold.woff2);
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Lama sans standard";
+  src: url(/assets/fonts/Lama-rounded/Web/Standard/LamaRounded-Black.woff2);
+  font-weight: 900;
+  font-style: normal;
+}
+/* typography */
+/*-----------------------common typography-----------------------*/
+.sec-header .sec-title {
+  font-size: 1.5rem;
+  font-weight: 900;
+  line-height: 1.515rem;
+  color: #191919;
+  letter-spacing: -2%;
+}
+
+.sec-header .sec-subtitle {
+  font-size: 1rem;
+  font-weight: 900;
+  line-height: 1.01rem;
+}
+
+.plan-header .plan-name, .feature-card h4, .trip-card .trip-info h4 {
+  font-size: 1.25rem;
+  font-weight: 900;
+  line-height: 1.2625rem;
+  letter-spacing: -2%;
+}
+
+.plan-header .plan-price {
+  font-size: 2.25rem;
+  font-weight: 900;
+  line-height: 2.2725rem;
+}
+
+.plan-body p, .plan-header .plan-desc, .feature-card p {
+  font-size: 1.0625rem;
+  font-weight: 400;
+  line-height: 1.75rem;
+  letter-spacing: -3%;
+}
+
+/*-----------------------Flexbox-----------------------*/
+.trip-cards-wrapper {
+  overflow-x: auto;
+  overflow: scroll;
+  scrollbar-width: none;
+}
+
+.plan-cards-wrapper, .feature-cards-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+}
+
+/*-----------------------Common styles-----------------------*/
+.header-body .header-btn {
+  color: #191919;
+  border-radius: 0.9375rem;
+  padding: 0.9375rem 0.9375rem 0.9375rem 0.9375rem;
+  cursor: pointer;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  line-height: 0rem;
+  width: 100%;
+  cursor: pointer;
+}
+.header-body .header-btn p {
+  padding-left: 0.9375rem;
+}
+
+.header {
+  background-image: url(/assets/images/mobile/banner.jpg);
+  background-size: cover;
+  background-color: pink;
+  padding: 2.25rem 0rem 2.25rem 0rem;
+}
+
+.header-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2.25rem;
+}
+.header-body h1 {
+  font-size: 2.375rem;
+  font-weight: 900;
+  line-height: 3.03rem;
+  color: #FFFFFF;
+  text-align: center;
+  margin-bottom: 1.125rem;
+}
+.header-body .header-desc {
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.875rem;
+  color: #FFFFFF;
+  text-align: center;
+  margin-bottom: 2.25rem;
+}
+.header-body .header-btn {
+  background-color: #FEC430;
+}
+.header-body .arrow {
+  position: absolute;
+  left: 7.6%;
+  bottom: 3%;
+}
+.header-body .header-scroll-down {
+  margin-top: 5.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.header-body .header-scroll-down p {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  line-height: 1.12625rem;
+  color: #FFFFFF;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 89%;
+  margin: 0 auto;
+}
+
+.lg-db {
+  display: none;
+}
+
+.sec-mg-tp {
+  margin-top: 4.75rem;
+}
+
+.sec-header .sec-subtitle {
+  color: #A5A5A5;
+  margin-bottom: 0.75rem;
+}
+.sec-header .sec-title {
+  color: #191919;
+  margin-bottom: 3rem;
+}
+
+.trip-cards-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 1.25rem;
+}
+.trip-cards-wrapper .dp-n {
+  display: none;
+}
+
+.trip-card {
+  display: flex;
+  flex-direction: column;
+}
+.trip-card .mb-img-sz img {
+  max-width: 14.6875rem;
+  max-height: 23.125rem;
+}
+.trip-card .trip-info {
+  background-color: #FFFFFF;
+  border-radius: 1rem;
+  padding: 1.0625rem 0.75rem 1.0625rem 0.75rem;
+  cursor: pointer;
+  gap: 0.875rem;
+  position: absolute;
+  width: 89.8%;
+  bottom: 4%;
+  display: flex;
+  flex-direction: column;
+}
+.trip-card .trip-info h4 {
+  color: #191919;
+}
+.trip-card .trip-info p {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.01rem;
+  font-family: "Lama sans standard", sans-serif;
+  color: #797979;
+}
+
+.features .wrapper {
+  background-color: #F1EFFD;
+  border-radius: 1.5625rem;
+  padding: 4rem 0rem 4rem 0rem;
+  cursor: pointer;
+  z-index: 0;
+}
+.features .wrapper .arrow {
+  position: absolute;
+  top: 0;
+  left: 13%;
+  z-index: 1;
+  transform: translateY(-5%);
+}
+
+.feature-cards-wrapper {
+  width: 77.8%;
+}
+
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.feature-card .card-info {
+  text-align: center;
+}
+.feature-card h4 {
+  color: #191919;
+}
+.feature-card p {
+  font-family: "Lama sans standard", sans-serif;
+  color: #4C4C4C;
+}
+.feature-card picture > img {
+  max-height: 140px;
+  max-width: 140px;
+}
+
+.plan-cards-wrapper {
+  font-family: "Lama sans standard", sans-serif;
+}
+.plan-cards-wrapper .eco-plan, .plan-cards-wrapper .business-plan {
+  background-color: #FFE7AC;
+}
+.plan-cards-wrapper .family-plan {
+  background-color: #46368B;
+}
+
+.plan-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #191919;
+  border-radius: 1.5625rem;
+  cursor: pointer;
+  padding: 2.25rem 0rem;
+  gap: 2rem;
+}
+
+.plan-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.plan-header .plan-price {
+  font-family: "Lama sans", sans-serif;
+}
+.plan-header .plan-price span {
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.1925rem;
+}
+.plan-header .plan-header::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: #4C4C4C;
+}
+
+.plan-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1875rem;
+}
+.plan-body .plan-body-li {
+  display: flex;
+  flex-direction: row;
+}
+body {
+  font-family: "Lama sans", sans-serif;
+  font-weight: 400;
+}/*# sourceMappingURL=styles.css.map */

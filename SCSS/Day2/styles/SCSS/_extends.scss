@@ -1,0 +1,7 @@
+%header-font {
+    font-family: $title-font;
+}
+
+%icon {
+    @include btn($lt-green, null, 7px, 8.5px, 7px, 8.5px, 4px, 43.66px, true);
+}

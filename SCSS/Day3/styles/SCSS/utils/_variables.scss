@@ -1,0 +1,84 @@
+/*--------------------------------------colors------------------------------------------------*/
+/* colors */
+$white: #FFFFFF;
+$umbra-700 : #191919;
+$umbra-400: #797979;
+$umbra-500: #4C4C4C;
+$umbra-3oo: #A5A5A5;
+$rise-600: #FEC430;
+$candy-grap-100: #F1EFFD;
+$candy-grap-800: #46368B;
+$rise-300: #FFE7AC;
+
+/* header */
+$btn-reserve-color: $rise-600;
+$font-color: $white;
+
+$feature-color: $candy-grap-100;
+$sub-title-color: $umbra-3oo;
+$header-color: $umbra-700;
+$lg-body-text-color: $umbra-400;
+$mb-body-text-color: $umbra-500;
+
+/*---------------------------------------fonts------------------------------------------------*/
+// typeface
+@font-face {
+  font-family: 'Lama sans';
+  src: url(/assets/fonts/Lama-rounded/Web/Expanded/LamaRounded-RegularExpanded.woff2);
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lama sans';
+  src: url(/assets/fonts/Lama-rounded/Web/Expanded/LamaRounded-BlackExpanded.woff2);
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lama sans';
+  src: url(/assets/fonts/Lama-rounded/Web/Expanded/LamaRounded-MediumExpanded.woff2);
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lama sans';
+  src: url(/assets/fonts/Lama-rounded/Web/Expanded/LamaRounded-BoldExpanded.woff2);
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lama sans standard';
+  src: url(/assets/fonts/Lama-rounded/Web/Standard/LamaRounded-Regular.woff2);
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lama sans standard';
+  src: url(/assets/fonts/Lama-rounded/Web/Standard/LamaRounded-Medium.woff2);
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lama sans standard';
+  src: url(/assets/fonts/Lama-rounded/Web/Standard/LamaRounded-Bold.woff2);
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lama sans standard';
+  src: url(/assets/fonts/Lama-rounded/Web/Standard/LamaRounded-Black.woff2);
+  font-weight: 900;
+  font-style: normal;
+}
+
+$font-family: 'Lama sans', sans-serif;
+$font-family-standard: 'Lama sans standard', sans-serif;
+$font-size: 16px;
+$font-weight: 400;

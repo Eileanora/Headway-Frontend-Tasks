@@ -1,0 +1,76 @@
+.btats {
+  .body-container {
+      @include flex(row);
+      .contact-details {
+          width: 33.33%;
+          @include add-padding(113px, 29px, 0, 21px);
+
+          .contact-details-header {
+              @include flex(column, center, center);
+
+              .title {
+                  @extend %header-font;
+                  @include typography(18px, 400, 22.5px, $name);
+              } // title
+
+              .contact-title {
+                  @include typography(15px, 500, 18.75px, $title);
+              } // contact-title
+          } // header
+
+          .contact-details-sub-nav {
+              @include flex(row, space-between);
+              margin-top: rem-calc(20px);
+              @include btn($sub-nav-bg, $sub-nav, 2px, 3.74px, 3px, 3.74px, 10px, null);
+              transition: none;
+              font-family: $title-font;
+              margin-top: rem-calc(83px);
+              width: 100%;
+              span {
+                  @include typography(15px, 400, 18.75px, $sub-nav);
+                  @include btn($sub-nav-bg, null, 8px, 0, 8px, 17.5px, 10px, null, true);
+                  width: 33.33%;
+              } 
+
+              span.active {
+                  @include btn($sub-nav-active-bg, $sub-nav-active, 0, 0, 0, 0, 10px, null, true);
+              }
+          } // contact-details-sub-nav
+
+          .contact-details-body { 
+            margin-top: rem-calc(35px);
+            @include flex(column);
+            gap: rem-calc(23px);
+
+            .contact-details-content {
+              @include flex(row, space-between, center);
+            }
+
+            .contact-details-label {
+              @include typography(15px, 500, 18.15px, $title);
+            }
+
+            .contact-details-value {
+              @include typography(15px, 500, 18.15px, $value);
+              padding-top: rem-calc(4.5px);
+            }
+
+            .contact-details-icon-phone {
+              @extend %icon;
+            }
+
+            .contact-details-icon-mail {
+              @extend %icon;
+              background-color: $lt-orange;
+              @include change-btn-bg($lt-orange);
+            }
+
+            .contact-details-icon-msg {
+              @extend %icon;
+              @include change-btn-bg($lt-blue);
+            }
+            
+          }
+      } // contact-details
+  } // body-container
+} // btats

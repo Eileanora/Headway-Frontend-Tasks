@@ -1,0 +1,41 @@
+.btats {
+  width: 100%;
+  #mid-header {
+      border-bottom: 3px solid $border-color;
+  }
+
+  .header-container{
+      @include flex(row, space-between, center);
+      width: 93.24%;
+      @include add-margin(52px, 'auto', 46px);
+      .title {
+          @extend %header-font;
+          @include typography(24px, 400, 30px, $name);
+      }
+
+      .right-side {
+          @include flex(row);
+
+          .wrapper {
+              @include flex(row, null, center);
+              position: relative;
+              img {
+                  position: absolute;
+                  left: 7px;
+              }
+              span {
+                  @include typography(15px, 500, 18.15px, $add-info-text);
+                  @include btn($add-info-bg, $add-info-text, 11px, 15px, 11px, 0, 5px, 140px, true); 
+                  text-align: right;
+              }
+          }
+
+          .filter-icon {
+              @include flex(row, center, center);
+              @include btn($filter-bg, $add-info-text, 0, 0, 0, 0, 5px, 40px, true);
+              @include add-margin(0, 21px, 0, 0);
+              box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.13);
+          }
+      }
+  }
+}
