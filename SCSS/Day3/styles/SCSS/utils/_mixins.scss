@@ -1,0 +1,122 @@
+@mixin flex($direction: row, $justify: null, $align: null) {
+  display: flex;
+  flex-direction: $direction;
+  @if $justify != null {
+    justify-content: $justify;
+  }
+  @if $align != null {
+    align-items: $align;
+  }
+}
+
+@mixin typography($size, $weight, $line-height ,$color: null, $letter-spacing: null) {
+  font-size: rem-calc($size);
+  font-weight: $weight;
+  line-height: rem-calc($line-height);
+  @if $color != null {
+    color: $color;
+  }
+  @if $letter-spacing != null {
+    letter-spacing: $letter-spacing;
+  }
+}
+
+@mixin add-margin($top, $right: null, $bottom: null, $left: null) {
+  @if $right == null and $bottom == null and $left == null {
+    margin: rem-calc($top);
+  } @else if $bottom == null and $left == null {
+    margin: rem-calc($top) rem-calc($right);
+  } @else if $left == null {
+    margin: rem-calc($top) rem-calc($right) rem-calc($bottom);
+  } @else {
+    margin: rem-calc($top) rem-calc($right) rem-calc($bottom) rem-calc($left);
+  }
+}
+
+@mixin check-padding($padding-top, $padding-right, $padding-bottom, $padding-left) {
+  @if $padding-top != 0 or $padding-right != 0 or $padding-bottom != 0 or $padding-left != 0 {
+    @include add-padding($padding-top, $padding-right, $padding-bottom, $padding-left);
+  }
+}
+
+@mixin add-padding($top, $right: null, $bottom: null, $left: null) {
+  @if $right == null and $bottom == null and $left == null {
+    padding: rem-calc($top);
+  } @else if $bottom == null and $left == null {
+    padding: rem-calc($top) rem-calc($right);
+  } @else if $left == null {
+    padding: rem-calc($top) rem-calc($right) rem-calc($bottom);
+  } @else {
+    padding: rem-calc($top) rem-calc($right) rem-calc($bottom) rem-calc($left);
+  }
+}
+
+@mixin add-btn-hover($bg-color){
+  transition: background-color 0.3s ease;
+  &:hover {
+    background-color: darken($bg-color, 10%);
+  }
+}
+
+@mixin btn($bg-color, $color, $padding-top, $padding-right, $padding-bottom, $padding-left, $border-radius, $width, $st-hover: false) {
+  @if $bg-color != null {
+    background-color: $bg-color;
+  }
+  @if $color != null {
+    color: $color;
+  }
+  @if $width != null {
+    width: rem-calc($width);
+  }
+  @if $border-radius != null {
+    border-radius: rem-calc($border-radius);
+  }
+
+  @include check-padding($padding-top, $padding-right, $padding-bottom, $padding-left);
+
+  cursor: pointer;
+
+  @if $st-hover {
+    @include add-btn-hover($bg-color);
+  }
+}
+
+@mixin add-shadow($shadow-color, $shadow-offset-x, $shadow-offset-y, $shadow-blur, $shadow-spread) {
+  box-shadow: rem-calc($shadow-offset-x) rem-calc($shadow-offset-y) rem-calc($shadow-blur) rem-calc($shadow-spread) $shadow-color;
+}
+
+@mixin change-btn-bg($bg-color) {
+  background-color: $bg-color;
+  @include add-btn-hover($bg-color);
+}
+
+
+@mixin link-hover($color) {
+  cursor: pointer;
+  transition: color 0.3s ease;
+  &:hover {
+    color: darken($color, 10%);
+  }
+}
+
+
+@mixin float-item($top, $right, $bottom, $left) {
+  position: absolute;
+  @if $top != null {
+    top: $top;
+  }
+  @if $right != null {
+    right: $right;
+  }
+  @if $bottom != null {
+    bottom: $bottom;
+  }
+  @if $left != null {
+    left: $left;
+  }
+}
+
+@mixin change-img-sz($width, $height) {
+  max-width: rem-calc($width);
+  max-height: rem-calc($height);
+}

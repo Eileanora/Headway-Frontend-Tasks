@@ -1,0 +1,34 @@
+.wrapper {
+  @include flex(row, center, center);
+  width: 100%;
+  position: relative;
+}
+
+.container {
+  @include flex($direction: column);
+  width: 89%;
+  margin: 0 auto;
+}
+
+.lg-db {
+  display: none;
+}
+
+.sec-mg-tp {
+  margin-top: rem-calc(76px);
+}
+
+.sec-header {
+  .sec-subtitle {
+    @extend %mb-sec-subtitle;
+    color: $sub-title-color;
+    margin-bottom: rem-calc(12px);
+  }
+  
+  .sec-title {
+    @extend %mb-sec-title;
+    color: $header-color;
+    margin-bottom: rem-calc(48px);
+  }
+}
+

@@ -1,0 +1,30 @@
+@function rem-calc($size, $font-size : $font-size) {
+  // check if the size is 'auto'
+  @if $size == 'auto' {
+      @return auto;
+  }
+  $font-size: $font-size + 0px;
+  @if unitless($size) {
+      $size: $size + 0px;
+  }
+  @if $size == 0 {
+      @return 0;
+  }
+  $remSize: calc($size / $font-size);
+  @return #{$remSize}rem;
+}
+
+@function em-calc($size, $font-size : $font-size) {
+  $font-size: $font-size + 0px;
+  $remSize: $size / $font-size;
+  @return #{$remSize}em;
+}
+
+@function width-percentage($value, $total) {
+  @return ($value / $total) * 100%;
+}
+
+@function percentage($value, $total) {
+  @return ($value / $total) * 100;
+}
+ 

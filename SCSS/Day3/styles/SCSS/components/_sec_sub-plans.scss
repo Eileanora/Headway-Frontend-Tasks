@@ -1,0 +1,60 @@
+.plan-cards-wrapper {
+  @extend %flex-wrap;
+  font-family: $font-family-standard;
+  .eco-plan, .business-plan {
+    background-color: $rise-300;
+  }
+
+  .family-plan {
+    background-color: $candy-grap-800;
+  }
+}
+
+.plan-card {
+  @include flex(column, center, center);
+  @include btn(null, $umbra-700, 0, 0, 0, 0, 25px, null, false);
+  padding: rem-calc(36px) rem-calc(0);
+  gap: rem-calc(32px);
+}
+
+.plan-header {
+  @include flex(column);
+  gap: rem-calc(16px);
+
+  .plan-price {
+    font-family: $font-family;
+    @extend %mb-36;
+
+    span {
+      @include typography(18px, 700, 19.08px);
+    }
+
+  }
+
+  .plan-name {
+    @extend %mb-h4;
+  }
+
+  .plan-desc {
+    @extend %mb-17;
+  }
+
+  .plan-header::after {
+    content: '';
+    width: 100%;
+    height: 1px;
+    background-color: $umbra-500;
+  }
+}
+
+.plan-body {
+  @include flex(column);
+  gap: rem-calc(19px);
+  .plan-body-li {
+    @include flex(row)
+  }
+
+  p {
+    @extend %mb-17;
+  }
+}

@@ -1,0 +1,8 @@
+@import './utils/reset', './utils/variables', './utils/mixins', './utils/functions', './utils/placeholders';
+@import './components/header', './components/common', './components/sec_trips', './components/sec_features';
+@import './components/sec_sub-plans';
+
+body {
+  font-family: $font-family;
+  font-weight: $font-weight;
+}

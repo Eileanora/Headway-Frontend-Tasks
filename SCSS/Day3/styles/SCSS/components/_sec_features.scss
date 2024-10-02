@@ -1,0 +1,43 @@
+.features {
+  .wrapper {
+    @include btn($feature-color, null, 64px, 0, 64px, 0, 25px, null);
+    z-index: 0;
+
+    .arrow {
+      position: absolute;
+      top: 0;
+      left: 13%;
+      z-index: 1;
+      transform: translateY(-5%);
+    }
+  }
+}
+.feature-cards-wrapper{
+  @extend %flex-wrap;
+  width: 77.8%;
+}
+
+.feature-card {
+  @include flex(column, null, center);
+  flex-wrap: wrap;
+
+  .card-info {
+    text-align: center;
+  }
+  
+  h4 {
+    @extend %mb-h4;
+    color: $header-color;
+  }
+
+  p {
+    @extend %mb-17;
+    font-family: $font-family-standard;
+    color: $mb-body-text-color;
+  }
+
+  picture > img{
+    max-height: 140px; 
+    max-width: 140px;
+  }
+}
