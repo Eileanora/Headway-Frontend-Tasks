@@ -1,0 +1,46 @@
+// .btn {
+//   @include btn($btn-primary-bg, $btn-primary-txt, 13px, 0, 13px, 0, 8px, null, true);
+//   border: none;
+//   width: 100%;
+// }
+
+// .container {
+//   width: 84%;
+//   margin: 0 auto;
+// }
+
+section, .page-header{
+  margin: 30px auto;
+  border-radius: 8px;
+  @include add-shadow($shadow-color, 0, 30, 60, 0);
+}
+
+section {
+  width: 348px;
+  @include flex(column);
+}
+
+.w84 {
+  width: 84%;
+  margin: 0 auto;
+}
+
+.mg-28 {
+  padding-left: 28px;
+}
+
+.w408px {
+  width: 408px;
+}
+
+.w281px {
+  width: 281px;
+}
+
+.w319px {
+  width: 319px;
+}
+
+.w348px {
+  width: 348px;
+}

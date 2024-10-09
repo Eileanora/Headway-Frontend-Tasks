@@ -1,0 +1,77 @@
+.alerts {
+  width: 408px;
+  @include flex(column);
+  gap: 20px;
+  box-shadow: none;
+}
+
+%alert {
+  @include add-border(0.5px, solid, null, 8px);
+  @include add-shadow(#4048520D, 0, 2, 1, 0);
+  @include flex(row, null, center);
+  gap: rem-calc(20px);
+  padding: rem-calc(16px) rem-calc(20px);
+
+  .alert-icon {
+    @include typography(15px, 600, 23px, 0.5px);
+    @include flex(row, center, center);
+    cursor: pointer;
+    color: $white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+  }
+
+  .alert-text {
+    @include flex(column);
+    cursor: pointer;
+
+    .title {
+      @include typography(13px, 600, 20px, 0.5px);
+    }
+
+    .message {
+      @include typography(11px, 400, 17px, 0.5px);
+    }
+  }
+}
+
+@mixin add-alert-style($bg-color, $border-color, $title-color, $message-color) {
+  background-color: $bg-color;
+  border-color: $border-color;
+
+  .alert-text {
+    .title { 
+      @include add-text-hover($title-color, 0.6);
+      color: $title-color;
+    }
+
+    .message {
+      color: $message-color;
+    }
+  }
+  .alert-icon {
+    @include add-bg-hover($border-color);
+    background-color: $border-color;
+  }
+}
+
+.alert--danger {
+  @extend %alert;
+  @include add-alert-style(#FFF8F8, #F85640, #F85640, #79170A);
+}
+
+.alert--success {
+  @extend %alert;
+  @include add-alert-style(#DCF3EB, #34A770, #13854E, #10673E);
+}
+
+.alert--attention {
+  @extend %alert;
+  @include add-alert-style(#FFF8EF, #FBA63C, #E18109, #BC741A);
+}
+
+.alert--primary {
+  @extend %alert;
+  @include add-alert-style(#E1F2FC, #08A0F7, #08A0F7, #3387B7);
+}

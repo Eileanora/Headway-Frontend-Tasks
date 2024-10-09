@@ -1,0 +1,86 @@
+.create-card {
+  margin-top: 30px;
+  padding-top: 8px;
+  padding-bottom: rem-calc(28px);
+}
+
+.create-card__header {
+  @include flex(row);
+  flex-direction: row-reverse;
+  margin-right: 8px;
+
+  img {
+    cursor: pointer;
+  }
+}
+
+.create-card__form {
+  @include flex(column);
+
+  .form-item {
+    @include flex(column);
+    gap: rem-calc(16px);
+  }
+  label {
+    @extend %title;
+    margin-bottom: 8px;
+  }
+
+  textarea {
+    width: 100%;
+    height: rem-calc(150px);
+    padding: rem-calc(20px) rem-calc(20px);
+    resize: none;
+    @include add-border(1px, solid, $btn-primary-bg, $border-raduis);
+    @include add-shadow($btn-primary-bg, 0, 5, 15, 0);
+  }
+
+  textarea::placeholder {
+    @extend %body-text;
+    font-family: $font-family;
+  }
+
+  textarea:focus {
+    outline-color: $btn-primary-bg;
+  }
+}
+
+.card-items-wrapper {
+  margin: rem-calc(24px) auto;
+  @include flex(column);
+  gap: rem-calc(16px);
+}
+
+.card-item {
+  @include flex(column);
+  @include after-element;
+  gap: rem-calc(16px);
+}
+
+.card-item-wrapper {
+  @include flex(row, null, center);
+  gap: rem-calc(20px);
+
+  .add-icon {
+    cursor: pointer;
+    margin-left: auto;
+  }
+
+  .card-item-contents {
+    @include flex(row, null, center);
+    gap: rem-calc(8px);
+  }
+
+  .label {
+    @extend %label;
+    @include add-label-color($lt-blue, $dk-blue);
+  }
+
+  .friend {
+    @include flex(row, null, center);
+    gap: rem-calc(12px);
+    p {
+      @extend %body-text;
+    }
+  }
+}

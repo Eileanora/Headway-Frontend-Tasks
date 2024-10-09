@@ -1,0 +1,29 @@
+// &::after {
+//   content: " ";
+//   width: 100%;
+//   height: 1px;
+// }
+
+/* typography */
+%btn-font {
+  @include typography(15px, 500, 24px);
+  letter-spacing: 0.3px;
+}
+
+%title {
+  @include typography(15px, 500, 23px);
+}
+
+%body-text {
+  @include typography(13px, 400, 21px);
+}
+
+%sub-text {
+  @include typography(12px, 500, 12px, 0.3);
+}
+
+/* label */
+%label {
+  @extend %sub-text;
+  @include btn(null, null, 8px, 16px, 8px, 16px, 200px, null, false);
+}

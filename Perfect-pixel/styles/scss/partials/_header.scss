@@ -1,0 +1,47 @@
+.page-header {
+  width: 100%;
+  .container {
+    @include flex(row, null, center);
+    width: width-perc-calc(1088px, 25px) !important;
+    gap: rem-calc(40px);
+    padding: rem-calc(12px) 0;
+  }
+}
+
+.logo {
+  @include flex(row, null, center);
+  gap: rem-calc(10px);
+  @include typography(12px, 700, 15px);
+  letter-spacing: 0.5px;
+  color: #08A0F7;
+}
+
+#search-form {
+  @include set-search-bar(#F4F7FC);
+  width: 100%;
+}
+
+nav {
+  margin-left: auto;
+  li a {
+    text-decoration: none;
+    color: rgba($font-color, 0.6);
+    @include add-text-hover($font-color, 0.6);
+  }
+  ul {
+    @include flex(row, null, center);
+    gap: rem-calc(34px);
+  }
+
+  li {
+    @extend %body-text;
+  }
+
+  .active {
+    color: #08A0F7;
+    font-weight: 600;
+    &:hover {
+      color: #08A0F7;
+    }
+  }
+}

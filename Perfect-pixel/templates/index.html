@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles/css/styles.css">
+  <title>Document</title>
+</head>
+<body>
+  <header class="page-header">
+    <div class="container w84">
+      <div class="logo">
+        <figure class="logo__image">
+          <img src="/assests/images/icons/logo.svg" alt="logo" />
+        </figure>
+        <p class="logo__text">TASK</p>
+      </div>
+        <form id="search-form">
+          <div class="search-bar wrapper">
+            <figure class="search-icon">
+              <img src="/assests/images/icons/search.svg" alt="search icon" />       
+            </figure> <!-- search-icon -->
+            <input type="search" id="search" name="search" placeholder="Search everything" />
+          </div> <!-- wrapper -->
+        </form> <!-- search-form -->
+      <nav>
+        <ul>
+          <li><a href="#" class="active">Projects</a></li>
+          <li><a href="#">Settings</a></li>
+          <li><a href="#">Help</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <section class="create-card w84">
+    <header class="create-card__header">
+      <img class="close-icon" src="/assests/images/icons/close_small.svg" alt="close icon" />
+    </header> <!-- create-card__header -->
+    <div class="container">
+      <form class="create-card__form" id="create-card">
+        <div class="form-item">
+          <label for="add-task">Create New Card</label>
+          <textarea id="add-task" name="add-task" placeholder="What is the task?"></textarea>
+        </div> <!-- form-item -->
+      </form> <!-- create-card__form -->
+      <div class="card-items-wrapper">
+        <div class="card-item">
+          <div class="card-item-wrapper">
+            <figure>
+              <img src="/assests/images/icons/tag.svg" alt="tag icon" />
+            </figure>
+            <div class="card-item-contents label">
+              <p>UI Design</p>
+            </div> <!-- card-item-contents --> 
+            <figure class="add-icon">
+              <img src="/assests/images/icons/plus-circle-dotted.svg" alt="add icon" />
+            </figure> <!-- add-icon -->
+          </div> <!-- card-item-wrapper -->
+        </div> <!-- card_item -->
+        <div class="card-item">
+          <div class="card-item-wrapper">
+            <figure>
+              <img src="/assests/images/icons/add-friend.svg" alt="friend icon" />
+            </figure>
+            <div class="card-item-contents friend">
+              <figure>
+                <img src="/assests/images/avatars/avatar-3.svg" alt="avatar icon" />
+              </figure>
+              <p>Samantha</p>
+            </div> <!-- card-item-contents -->
+            <figure class="add-icon">
+              <img src="/assests/images/icons/plus-circle-dotted.svg" alt="add icon" />
+            </figure> <!-- add-icon -->
+          </div> <!-- card-item-wrapper -->
+        </div> <!-- card-item -->
+      </div> <!-- card-items-wrapper -->
+      <button for="create-card" class="btn btn--primary">Done</button>
+    </div> <!-- container -->
+  </section> <!-- create-card -->  
+
+  <section class="buttons">
+    <button class="btn--primary">
+      <img src="/assests/images/icons/loading.svg" alt="plus icon" class="btn-icon" />
+      <span>Normal Button</span>
+    </button>
+    <button class="btn--loading">
+      <img src="/assests/images/icons/loading.svg" alt="plus icon" class="btn-icon" />
+      <span>Loading Button</span>
+    </button>
+    <button class="btn--secondary">
+      <img src="/assests/images/icons/loading.svg" alt="plus icon" class="btn-icon" />
+      <span>Secondary Button</span>
+    </button>
+  </section>
+
+  <section class="alerts">
+    <div class="alert--danger">
+      <div class="alert-icon">
+        <span>!</span>
+      </div> <!-- alert-icon -->
+      <div class="alert-text">
+        <p class="title">Someting wrong</p>
+        <p class="message">Lorem ipsum dolor sit amet</p>
+      </div> <!-- alert-text -->
+    </div> <!-- alert -->
+    <div class="alert--attention">
+      <div class="alert-icon">
+        <span>i</span>
+      </div> <!-- alert-icon -->
+      <div class="alert-text">
+        <p class="title">Need Attention</p>
+        <p class="message">Adipiscing elit, sed do eiusmod</p>
+      </div> <!-- alert-text -->
+    </div> <!-- alert -->
+    <div class="alert--success">
+      <div class="alert-icon">
+        <span>
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1.14936 4.68331L4.44919 7.98314L11.0489 1.38348" stroke="white" stroke-width="1.45814" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>          
+        </span>
+      </div> <!-- alert-icon -->
+      <div class="alert-text">
+        <p class="title">Success</p>
+        <p class="message">consectetur adipiscing elit sed</p>
+      </div> <!-- alert-text -->
+    </div> <!-- alert -->
+    <div class="alert--primary">
+      <div class="alert-icon">
+        <span>
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1.14936 4.68331L4.44919 7.98314L11.0489 1.38348" stroke="white" stroke-width="1.45814" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>          
+        </span>
+      </div> <!-- alert-icon -->
+      <div class="alert-text">
+        <p class="title">Other Condition</p>
+        <p class="message">consectetur adipiscing elit sed</p>
+      </div> <!-- alert-text -->
+    </div> <!-- alert -->
+  </section> <!-- alerts -->  
+  
+  <section class="progress">
+    <div class="progress--circle">
+      <svg viewBox="0 0 190 190" style="--progress: 75">
+        <circle class="progress__bg"></circle>
+        <circle class="progress__fill"></circle>
+      </svg>
+      <div class="content">
+        <span class="percentage">75%</span>
+        <span class="title">Tasks Completed</span>
+      </div>
+    </div>
+
+    <div class="progress--ln">
+      <div class="progress-bar">
+        <div class="progress-bar__fill" style="width: 75%"></div>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="dropdown-menu">
+    <div class="dropdown">
+      <input type="checkbox" id="dropdown">
+      <label class="dropdown__label" for="dropdown">
+        <div class="dropdown__text">
+          <img src="/assests/images/icons/add-friend.svg" alt="add friend icon" />
+          <span>Assign task to</span>
+        </div>
+        <div class="dropdown__arrow"></div>
+      </label>
+    
+      <div class="dropdown__items">
+        <div class="search-bar wrapper">
+          <figure class="search-icon">
+            <img src="/assests/images/icons/search.svg" alt="search icon" />       
+          </figure> <!-- search-icon -->
+          <input type="search" id="search" name="search" placeholder="Search everything" />
+        </div> <!-- wrapper -->
+        <div class="dropdown__item">
+          <div class="avatar">
+            <figure>
+              <img src="/assests/images/avatars/avatar-1.svg" alt="avatar icon" />
+            </figure>
+            <span class="name">Angela Smith</span>
+          </div> <!-- avatar -->
+          <span class="tasks">16 task on progress</span>
+        </div> <!-- dropdown__item -->
+        <div class="dropdown__item">
+          <div class="avatar">
+            <figure>
+              <img src="/assests/images/avatars/avatar-2.svg" alt="avatar icon" />
+            </figure>
+            <span class="name">Karen William</span>
+          </div> <!-- avatar -->
+          <span class="tasks">25 task on progress</span>
+        </div> <!-- dropdown__item -->
+        <div class="dropdown__item">
+          <div class="avatar">
+            <figure>
+              <img src="/assests/images/avatars/avatar-3.svg" alt="avatar icon" />
+            </figure>
+            <span class="name">Samantha William</span>
+          </div> <!-- avatar -->
+          <span class="tasks">35 task on progress</span>
+        </div> <!-- dropdown__item -->
+        <div class="dropdown__item">
+          <div class="avatar">
+            <figure>
+              <img src="/assests/images/avatars/avatar-4.svg" alt="avatar icon" />
+            </figure>
+            <span class="name">Andy Hope</span>
+          </div> <!-- avatar -->
+          <span class="tasks">12 task on progress</span>
+        </div> <!-- dropdown__item -->
+      </div> <!-- dropdown__items -->
+    </div> <!-- dropdown -->
+    
+  </section>
+
+
+  <section class="checkbox-group">
+    <form>
+      <div class="input-group checkbox">
+        <label>
+          <input type="checkbox" name="checkbox" value="1">
+        </label>
+      </div> <!-- input-group -->
+      <div class="input-group checkbox">
+        <label>
+          <input type="checkbox" name="checkbox" value="1">
+        </label>
+      </div> <!-- input-group -->
+      <div class="input-group checkbox">
+        <label>
+          <input type="checkbox" name="checkbox" value="1">
+        </label>
+      </div> <!-- input-group -->
+    </form>
+  </section>
+
+  <section class="labels w348px">
+    <div class="container">
+      <header class="labels__header">
+        <h2>Labels</h2>
+        <img class="menu-icon" src="/assests/images/icons/list.svg" alt="menu icon" />
+      </header> <!-- labels__header -->
+  
+      <div class="labels-wrapper checkbox-group">
+        <form id="labels-check">
+          <div class="input-group checkbox">
+            <label>
+              <img class="label-icon" src="/assests/images/icons/tag.svg" alt="tag icon" />
+              <span>Copywriting</span>
+              <input type="checkbox" name="checkbox" value="1">
+            </label>
+          </div> <!-- input-group -->
+          <div class="input-group checkbox">
+            <label>
+              <img class="label-icon" src="/assests/images/icons/tag.svg" alt="tag icon" />
+              <span>UI Design</span>
+              <input type="checkbox" name="checkbox" value="1">
+            </label>
+          </div> <!-- input-group -->
+          <div class="input-group checkbox">
+            <label>
+              <img class="label-icon" src="/assests/images/icons/tag.svg" alt="tag icon" />
+              <span>Illustrations</span>
+              <input type="checkbox" name="checkbox" value="1">
+            </label>
+          </div> <!-- input-group -->
+        </form>
+      </div>
+  
+    </div> <!-- container -->
+  </section>
+  
+
+</body>
+</html>
