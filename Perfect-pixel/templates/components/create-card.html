@@ -1,41 +1,48 @@
-<section class="create-card w348px">
-  <header class="create-card__header">
-    <img class="close-icon" src="/assests/images/icons/close_small.svg" alt="close icon" />
+<section class="create-card w-348 pl-28 pb-28">
+  <header class="create-card__header mr-8 mt-8">
+    <div class="header__icons">
+      <img class="close-icon head-icon" src="/assests/images/icons/close_small.svg" alt="close icon" />
+    </div> <!-- create-card__header__icons -->
+    <h2 class="card-title">Create New Card</h2>
   </header> <!-- create-card__header -->
-  <div class="container">
+  <div class="container pr-28">
     <form class="create-card__form" id="create-card">
       <div class="form-item">
-        <label for="add-task">Create New Card</label>
+        <!-- <label for="add-task">Create New Card</label> -->
         <textarea id="add-task" name="add-task" placeholder="What is the task?"></textarea>
       </div> <!-- form-item -->
     </form> <!-- create-card__form -->
     <div class="card-items-wrapper">
       <div class="card-item">
-        <figure>
-          <img src="/assests/images/icons/tag.svg" alt="tag icon" />
-        </figure>
-        <div class="card-item-contents label">
-          <p>UI Design</p>
-        </div> <!-- card-item-contents --> 
-        <figure class="add-icon">
-          <img src="/assests/images/icons/plus-circle-dotted.svg" alt="add icon" />
-        </figure> <!-- add-icon -->
+        <div class="card-item-wrapper">
+          <figure>
+            <img src="/assests/images/icons/tag.svg" alt="tag icon" />
+          </figure>
+          <div class="card-item-contents label">
+            <p>UI Design</p>
+          </div> <!-- card-item-contents --> 
+          <figure class="add-icon">
+            <img src="/assests/images/icons/plus-circle-dotted.svg" alt="add icon" />
+          </figure> <!-- add-icon -->
+        </div> <!-- card-item-wrapper -->
       </div> <!-- card_item -->
       <div class="card-item">
-        <figure>
-          <img src="/assests/images/icons/add-friend.svg" alt="friend icon" />
-        </figure>
-        <div class="card-item-contents friend">
+        <div class="card-item-wrapper">
           <figure>
-            <img src="/assests/images/avatars/avatar-3.svg" alt="avatar icon" />
+            <img src="/assests/images/icons/add-friend.svg" alt="friend icon" />
           </figure>
-          <p>Samantha</p>
-        </div> <!-- card-item-contents -->
-        <figure class="add-icon">
-          <img src="/assests/images/icons/plus-circle-dotted.svg" alt="add icon" />
-        </figure> <!-- add-icon -->
+          <div class="card-item-contents friend">
+            <figure>
+              <img src="/assests/images/avatars/avatar-3.svg" alt="avatar icon" />
+            </figure>
+            <p>Samantha</p>
+          </div> <!-- card-item-contents -->
+          <figure class="add-icon">
+            <img src="/assests/images/icons/plus-circle-dotted.svg" alt="add icon" />
+          </figure> <!-- add-icon -->
+        </div> <!-- card-item-wrapper -->
       </div> <!-- card-item -->
     </div> <!-- card-items-wrapper -->
-    <button for="create-card" class="btn btn-primary">Done</button>
+    <button for="create-card" class="btn btn--primary">Done</button>
   </div> <!-- container -->
 </section> <!-- create-card -->  

@@ -1,16 +1,17 @@
 .create-card {
-  margin-top: 30px;
-  padding-top: 8px;
-  padding-bottom: rem-calc(28px);
-}
+  gap: rem-calc(16px);
 
-.create-card__header {
-  @include flex(row);
-  flex-direction: row-reverse;
-  margin-right: 8px;
+  .container {
+    width: 100%;
+  }
 
-  img {
-    cursor: pointer;
+  &__header {
+    @include flex(column);
+    line-height: 0;
+
+    .header__icons {
+      @include flex(row, flex-end);
+    }
   }
 }
 
@@ -72,7 +73,6 @@
   }
 
   .label {
-    @extend %label;
     @include add-label-color($lt-blue, $dk-blue);
   }
 

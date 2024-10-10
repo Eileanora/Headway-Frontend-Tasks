@@ -62,18 +62,24 @@
   }
 }
 
-@mixin set-progress-bar($bg-color, $fill-color, $bg-opacity: 1, $fill-opacity: 1) {
-  .progress-bar {
+@mixin set-progress-bar($bg-color, $fill-color, $bg-opacity: 1, $fill-opacity: 1, $fill:null) {
+  & {
     background-color: rgba($bg-color, $bg-opacity);
   }
 
   .progress-bar__fill {
     background-color: rgba($fill-color, $fill-opacity);
+
+    @if $fill != null {
+      width: $fill;
+    }
   }
+
 }
 
-%progress--ln {
-  width: 225px;
+.progress-bar--ln {
+  width: 100%;
+
   .progress-bar {
     width: 100%;
     border-radius: 200px;
@@ -82,7 +88,6 @@
 
   .progress-bar__fill {
     height: 5px;
-    width: var(--progress);
     border-radius: 200px;
     transition: width 0.3s ease-in-out; 
   }

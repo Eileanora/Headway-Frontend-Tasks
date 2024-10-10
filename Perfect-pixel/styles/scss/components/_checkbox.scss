@@ -1,40 +1,32 @@
-.checkbox-group {
-  form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-}
 
 %input-toggle {
   input {
-    position: relative;
+    @include flex(row, center, center);
     width: rem-calc(24px);
     aspect-ratio: 1;
     cursor: pointer;
     background-color: rgba($color: #08A0F7, $alpha: 0.06);
-    // @include flex(row, center, center);
+    transition: background-color 0.2s ease-in-out;
   }
 
   input::before {
     content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    clip-path: url(/assests/images/icons/checkmark.svg);
-    transform: scale(0) translate(-50%, -50%);
+    background-image: url(/assests/images/icons/checkmark.svg);
+    width: 11px;
+    height: 8px;
+    background-repeat: no-repeat;
+    transform: scale(0);
+    transition: transform 0.2s ease-in-out;
+    pointer-events: none;
   }
 
   input:checked {
     background-color: #08A0F7;
     @include add-border(1.5px, solid, #FFFFFF, null);
+  }
 
-    input::before {
-      z-index: 1;
-      transform: scale(1);
-      display: block;
-    }
+  input:checked::before {
+    transform: scale(1);
   }
 }
 

@@ -1,0 +1,30 @@
+.tasks {
+  gap: rem-calc(24px);
+
+  &__header {
+    @extend %btn-font;
+  }
+}
+
+#tasks-form {
+  gap: rem-calc(20px);
+
+  label {
+    margin-right: rem-calc(28px);
+  }
+
+  .label__wrapper {
+    @include flex(row, null, flex-start);
+    gap: rem-calc(16px);
+  }
+
+  .label__text {
+    @include flex(column);
+    gap: rem-calc(4px);
+
+    .title {
+      @include add-text-hover($font-color, 0.6);
+      letter-spacing: 0.5;
+    }
+  }
+}

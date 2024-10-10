@@ -2,7 +2,7 @@
   width: 100%;
   .container {
     @include flex(row, null, center);
-    width: width-perc-calc(1088px, 25px) !important;
+    width: 90%;
     gap: rem-calc(40px);
     padding: rem-calc(12px) 0;
   }

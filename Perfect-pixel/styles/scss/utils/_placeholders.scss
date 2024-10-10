@@ -15,15 +15,34 @@
 }
 
 %body-text {
-  @include typography(13px, 400, 21px);
+  @include typography(13px, 400, 21px, 0.3);
 }
 
 %sub-text {
   @include typography(12px, 500, 12px, 0.3);
 }
 
-/* label */
-%label {
-  @extend %sub-text;
-  @include btn(null, null, 8px, 16px, 8px, 16px, 200px, null, false);
+%flex-center-x {
+  display: flex;
+  justify-content: center;
+}
+
+%flex-center-y {
+  display: flex;
+  align-items: center;
+}
+
+%flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+%icon-bg {
+  height: 28px;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  @extend %flex-center;
 }

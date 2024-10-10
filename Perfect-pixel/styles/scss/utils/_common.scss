@@ -1,46 +1,123 @@
-// .btn {
-//   @include btn($btn-primary-bg, $btn-primary-txt, 13px, 0, 13px, 0, 8px, null, true);
-//   border: none;
-//   width: 100%;
-// }
-
-// .container {
-//   width: 84%;
-//   margin: 0 auto;
-// }
-
-section, .page-header{
-  margin: 30px auto;
-  border-radius: 8px;
-  @include add-shadow($shadow-color, 0, 30, 60, 0);
-}
-
-section {
-  width: 348px;
-  @include flex(column);
-}
-
-.w84 {
+.container {
   width: 84%;
   margin: 0 auto;
 }
 
-.mg-28 {
-  padding-left: 28px;
+section, .page-header{
+  margin: 30px auto;
+  border-radius: 8px;
+  @include add-shadow($shadow-color-1, 0, 30, 60, 0);
+  // cursor: default;
+  max-width: 90%;
 }
 
-.w408px {
-  width: 408px;
+section {
+  @include flex(column);
 }
 
-.w281px {
-  width: 281px;
+.form-control {
+  @include after-element;
+  @include flex(column);
+  gap: 16px;
+
+  label {
+    @include flex(row, space-between);
+    gap: 16px;
+    margin-right: rem-calc(24px);
+    cursor: pointer;
+  }
 }
 
-.w319px {
-  width: 319px;
+.form-h {
+  @include flex(column);
+  gap: 16px;
 }
 
-.w348px {
-  width: 348px;
+.head-icon,
+.icon {
+  cursor: pointer;
+}
+
+.sub-text {
+  @extend %sub-text;
+  font-weight: 400;
+  opacity: 0.5;
+  color: #41475E;
+}
+
+.gray-icon {
+  fill: #C4CAD3 !important;
+}
+
+.card-title {
+  @include typography(15px, 500, 23px, 0.3);
+  cursor: default;
+}
+
+.text-13 {
+  @include typography(13px, 400, 21px, 0.3);
+}
+
+.w-408 {
+  width: rem-calc(408px);
+}
+
+.w-281 {
+  width: rem-calc(281px);
+}
+
+.w-319 {
+  width: rem-calc(319px);
+}
+
+.w-348 {
+  width: rem-calc(348px);
+}
+
+.pl-28 {
+  padding-left: rem-calc(28px);
+}
+
+.pb-28 {
+  padding-bottom: rem-calc(28px);
+}
+
+.pt-28 {
+  padding-top: rem-calc(28px);
+}
+
+.pr-28 {
+  padding-right: rem-calc(28px);
+}
+
+.pl-24 {
+  padding-left: rem-calc(24px);
+}
+
+.pb-24 {
+  padding-bottom: rem-calc(24px);
+}
+
+.pt-24 {
+  padding-top: rem-calc(24px);
+}
+
+.pr-24 {
+  padding-right: rem-calc(24px);
+}
+
+.mr-8 {
+  margin-right: rem-calc(8px);
+}
+
+.mt-8 {
+  margin-top: rem-calc(8px);
+}
+
+.mr-12 {
+  margin-right: rem-calc(12px);
+}
+
+.mt-12 {
+  margin-top: rem-calc(12px);
 }
