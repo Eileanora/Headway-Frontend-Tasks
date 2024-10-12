@@ -1,7 +1,7 @@
 .page-header {
   width: 100%;
   .container {
-    @include flex(row, null, center);
+    @include flex(row, space-between, center);
     width: 90%;
     gap: rem-calc(40px);
     padding: rem-calc(12px) 0;
@@ -17,11 +17,13 @@
 }
 
 #search-form {
+  display: none;
   @include set-search-bar(#F4F7FC);
   width: 100%;
 }
 
 nav {
+  display: none;
   margin-left: auto;
   li a {
     text-decoration: none;
@@ -43,5 +45,20 @@ nav {
     &:hover {
       color: #08A0F7;
     }
+  }
+}
+
+
+@media (min-width: 1088px) {
+  nav {
+    display: block;
+  }
+
+  #search-form {
+    display: block;
+  }
+
+  .mb-menu {
+    display: none;
   }
 }

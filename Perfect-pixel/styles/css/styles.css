@@ -111,15 +111,12 @@ input {
 }
 
 .container {
-  width: 84%;
   margin: 0 auto;
 }
 
 section, .page-header {
-  margin: 30px auto;
   border-radius: 8px;
   box-shadow: 0rem 1.875rem 3.75rem 0rem rgba(32, 56, 85, 0.1490196078);
-  max-width: 90%;
 }
 
 section {
@@ -184,52 +181,76 @@ section {
   letter-spacing: 0.3px;
 }
 
-.w-408 {
-  width: 25.5rem;
-}
-
-.w-281 {
-  width: 17.5625rem;
-}
-
-.w-319 {
-  width: 19.9375rem;
-}
-
-.w-348 {
-  width: 21.75rem;
-}
-
 .pl-28 {
-  padding-left: 1.75rem;
+  padding-left: 0.875rem;
+}
+@media (min-width: 769px) {
+  .pl-28 {
+    padding-left: 1.75rem;
+  }
 }
 
 .pb-28 {
-  padding-bottom: 1.75rem;
+  padding-bottom: 0.875rem;
+}
+@media (min-width: 769px) {
+  .pb-28 {
+    padding-bottom: 1.75rem;
+  }
 }
 
 .pt-28 {
-  padding-top: 1.75rem;
+  padding-top: 0.875rem;
+}
+@media (min-width: 769px) {
+  .pt-28 {
+    padding-top: 1.75rem;
+  }
 }
 
 .pr-28 {
-  padding-right: 1.75rem;
+  padding-right: 0.875rem;
+}
+@media (min-width: 769px) {
+  .pr-28 {
+    padding-right: 1.75rem;
+  }
 }
 
 .pl-24 {
-  padding-left: 1.5rem;
+  padding-left: 0.75rem;
+}
+@media (min-width: 769px) {
+  .pl-24 {
+    padding-left: 1.5rem;
+  }
 }
 
 .pb-24 {
-  padding-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+}
+@media (min-width: 769px) {
+  .pb-24 {
+    padding-bottom: 1.5rem;
+  }
 }
 
 .pt-24 {
-  padding-top: 1.5rem;
+  padding-top: 0.75rem;
+}
+@media (min-width: 769px) {
+  .pt-24 {
+    padding-top: 1.5rem;
+  }
 }
 
 .pr-24 {
-  padding-right: 1.5rem;
+  padding-right: 0.75rem;
+}
+@media (min-width: 769px) {
+  .pr-24 {
+    padding-right: 1.5rem;
+  }
 }
 
 .mr-8 {
@@ -248,8 +269,123 @@ section {
   margin-top: 0.75rem;
 }
 
+.w-408 {
+  width: 100%;
+}
+
+.w-281 {
+  width: 100%;
+}
+
+.w-319 {
+  width: 100%;
+}
+
+.w-348 {
+  width: 100%;
+}
+
+main {
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: space-between;
+  flex-wrap: wrap;
+  gap: 1.5625rem;
+}
+
+.col-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1.5625rem;
+}
+
+section {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.col-408 {
+  width: 100%;
+}
+
+.col-281 {
+  width: 100%;
+}
+
+.col-319 {
+  width: 100%;
+}
+
+.col-348 {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .container,
+  .col-408 {
+    width: 53.125%;
+  }
+  .col-281 {
+    width: 36.5885416667%;
+  }
+  .col-319 {
+    width: 41.5364583333%;
+  }
+  .col-348 {
+    width: 21.75rem;
+  }
+  .w-408 {
+    width: 53.125%;
+  }
+  .w-281 {
+    width: 36.5885416667%;
+  }
+  .w-319 {
+    width: 41.5364583333%;
+  }
+  .w-348 {
+    width: 21.75rem;
+  }
+}
+@media (min-width: 1088px) {
+  .container {
+    width: 95.5882352941%;
+  }
+  main {
+    gap: 2.5rem;
+  }
+  .col-wrapper {
+    gap: 2.5rem;
+  }
+  .col-408 {
+    width: 37.5%;
+  }
+  .col-281 {
+    width: 25.8272058824%;
+  }
+  .col-319 {
+    width: 29.3198529412%;
+  }
+  .col-348 {
+    width: 21.75rem;
+  }
+  .w-408 {
+    width: 37.5%;
+  }
+  .w-281 {
+    width: 25.8272058824%;
+  }
+  .w-319 {
+    width: 29.3198529412%;
+  }
+}
 .buttons {
-  width: 281px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -305,7 +441,6 @@ section {
 }
 
 .alerts {
-  width: 408px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -593,6 +728,7 @@ section {
 .page-header .container {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   align-items: center;
   width: 90%;
   gap: 2.5rem;
@@ -612,6 +748,7 @@ section {
 }
 
 #search-form {
+  display: none;
   width: 100%;
 }
 #search-form input[type=search] {
@@ -619,6 +756,7 @@ section {
 }
 
 nav {
+  display: none;
   margin-left: auto;
 }
 nav li a {
@@ -644,6 +782,17 @@ nav .active:hover {
   color: #08A0F7;
 }
 
+@media (min-width: 1088px) {
+  nav {
+    display: block;
+  }
+  #search-form {
+    display: block;
+  }
+  .mb-menu {
+    display: none;
+  }
+}
 .create-card {
   gap: 1rem;
 }
@@ -797,10 +946,16 @@ nav .active:hover {
 #tasks-form .label__text .title {
   cursor: pointer;
   transition: color 0.3s ease-in-out;
-  letter-spacing: 0.5;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1.3125rem;
+  letter-spacing: 0.5px;
 }
 #tasks-form .label__text .title:hover {
   color: rgba(0, 0, 0, 0.6);
+}
+#tasks-form .avatar-icon img {
+  width: 1.5rem;
 }
 
 .weekly-progress {
@@ -812,11 +967,10 @@ nav .active:hover {
   flex-direction: column;
   gap: 0.75rem;
 }
-.weekly-progress .title-wrapper {
+.weekly-progress .title__wrapper {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
   gap: 1rem;
 }
 /* progress bar style is in the progress-bar.scss file */
@@ -852,7 +1006,6 @@ nav .active:hover {
   align-items: flex-start;
   gap: 1rem;
   box-shadow: 0rem 1.875rem 3.75rem 0rem rgba(32, 56, 85, 0.1490196078);
-  padding: 1.75rem;
   background-color: #FFFFFF;
   border-radius: 0.5rem;
   z-index: 1;

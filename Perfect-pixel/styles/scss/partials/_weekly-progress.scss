@@ -7,8 +7,8 @@
     gap: rem-calc(12px);
   }
 
-  .title-wrapper {
-    @include flex(row, space-between, center);
+  .title__wrapper {
+    @include flex(row, space-between);
     gap: rem-calc(16px);
   }
 

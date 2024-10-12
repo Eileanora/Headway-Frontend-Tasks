@@ -1,5 +1,5 @@
 @import './utils/reset', './utils/variables', './utils/mixins', './utils/functions', './utils/placeholders';
-@import './utils/common';
+@import './utils/common', './utils/common-media';
 
 @import  './components/buttons', './components/alerts', './components/progress-bar', './components/search-bar', './components/checkbox', './components/label';
 @import  './partials/header', './partials/create-card', './partials/labels', './partials/tasks', './partials/weekly-progress', './partials/dropdown', './partials/task-progress', './partials/recent-activity', './partials/design-hp', './partials/file-attch', './partials/post';

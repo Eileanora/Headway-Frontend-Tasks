@@ -1,14 +1,12 @@
 .container {
-  width: 84%;
+  // width: 84%;
   margin: 0 auto;
 }
 
 section, .page-header{
-  margin: 30px auto;
   border-radius: 8px;
-  @include add-shadow($shadow-color-1, 0, 30, 60, 0);
+  @include add-shadow(#20385526, 0, 30px, 60px, 0);
   // cursor: default;
-  max-width: 90%;
 }
 
 section {
@@ -52,58 +50,77 @@ section {
 .card-title {
   @include typography(15px, 500, 23px, 0.3);
   cursor: default;
+  // line-height: 0;
 }
 
 .text-13 {
   @include typography(13px, 400, 21px, 0.3);
 }
 
-.w-408 {
-  width: rem-calc(408px);
-}
 
-.w-281 {
-  width: rem-calc(281px);
-}
-
-.w-319 {
-  width: rem-calc(319px);
-}
-
-.w-348 {
-  width: rem-calc(348px);
-}
 
 .pl-28 {
-  padding-left: rem-calc(28px);
+  padding-left: rem-calc(14px); // Default for mobile
+
+  @media (min-width: 769px) { // Adjust the breakpoint as needed
+    padding-left: rem-calc(28px); // Full size for desktop
+  }
 }
 
 .pb-28 {
-  padding-bottom: rem-calc(28px);
+  padding-bottom: rem-calc(14px); // Default for mobile
+
+  @media (min-width: 769px) { // Adjust the breakpoint as needed
+    padding-bottom: rem-calc(28px); // Full size for desktop
+  }
 }
 
 .pt-28 {
-  padding-top: rem-calc(28px);
+  padding-top: rem-calc(14px); // Default for mobile
+
+  @media (min-width: 769px) { // Adjust the breakpoint as needed
+    padding-top: rem-calc(28px); // Full size for desktop
+  }
 }
 
 .pr-28 {
-  padding-right: rem-calc(28px);
+  padding-right: rem-calc(14px); // Default for mobile
+
+  @media (min-width: 769px) { // Adjust the breakpoint as needed
+    padding-right: rem-calc(28px); // Full size for desktop
+  }
 }
 
 .pl-24 {
-  padding-left: rem-calc(24px);
+  padding-left: rem-calc(12px); // Default for mobile
+
+  @media (min-width: 769px) { // Adjust the breakpoint as needed
+    padding-left: rem-calc(24px); // Full size for desktop
+  }
 }
 
 .pb-24 {
-  padding-bottom: rem-calc(24px);
+  padding-bottom: rem-calc(12px); // Default for mobile
+
+  @media (min-width: 769px) { // Adjust the breakpoint as needed
+    padding-bottom: rem-calc(24px); // Full size for desktop
+  }
 }
 
 .pt-24 {
-  padding-top: rem-calc(24px);
+  padding-top: rem-calc(12px); // Default for mobile
+
+  @media (min-width: 769px) { // Adjust the breakpoint as needed
+    padding-top: rem-calc(24px); // Full size for desktop
+  }
 }
 
 .pr-24 {
-  padding-right: rem-calc(24px);
+  padding-right: rem-calc(12px); // Default for mobile
+
+  @media (min-width: 769px) { // Adjust the breakpoint as needed
+    padding-right: rem-calc(24px); // Full size for desktop
+  }
 }
 
 .mr-8 {
