@@ -3,23 +3,19 @@
 /*-----------------------common typography-----------------------*/
 %lg-section-title {
   @include typography(48px, 900, 48.48px,);
-  letter-spacing: -2%;
 }
 
 %lg-section-subtitle, 
 %lg-h4{
   @include typography(24px, 900, 24.24px);
-  letter-spacing: -2%;
 }
 
 %lg-sec-text {
   @include typography(18px, 400, 28px);
-  letter-spacing: -3%;
 }
 
 %mb-sec-title {
   @include typography(24px, 900, 24.24px, $header-color);
-  letter-spacing: -2%;
 }
 
 %mb-sec-subtitle {
@@ -28,12 +24,10 @@
 
 %mb-h4 {
   @include typography(20px, 900, 20.20px);
-  letter-spacing: -2%;
 }
 
 %mb-16 {
   @include typography(16px, 500, 16.16px);
-  letter-spacing: -2%;
 }
 
 %mb-36 {
@@ -46,12 +40,10 @@
 
 %mb-17 {
   @include typography(17px, 400, 28px);
-  letter-spacing: -3%;
 }
 
 %lg-36 {
   @include typography(36px, 900, 36.36px);
-  letter-spacing: -2%;
 }
 
 /*-----------------------Flexbox-----------------------*/
@@ -64,7 +56,7 @@
 %flex-wrap {
   @include flex(row, center, center);
   flex-wrap: wrap;
-  gap: rem-calc(40px);
+  // gap: rem-calc(40px);
 }
 
 /*-----------------------Common styles-----------------------*/
