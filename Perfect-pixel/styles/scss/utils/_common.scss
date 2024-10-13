@@ -6,11 +6,32 @@
 section, .page-header{
   border-radius: 8px;
   @include add-shadow(#20385526, 0, 30px, 60px, 0);
-  // cursor: default;
+}
+
+section,
+body,
+.col-wrapper {
+  @include flex(column);
+}
+
+main {
+  @include flex(row, center, flex-start);
+  flex-wrap: wrap;
+}
+
+body,
+main {
+  margin: 0 auto;
 }
 
 section {
-  @include flex(column);
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.col-wrapper {
+  flex-wrap: wrap;
 }
 
 .form-control {
@@ -36,17 +57,16 @@ section {
   cursor: pointer;
 }
 
-.sub-text {
-  @extend %sub-text;
-  font-weight: 400;
-  opacity: 0.5;
-  color: #41475E;
+/*------------------------------------colors------------------------------------------*/
+.filter-gray {
+  filter: invert(98%) sepia(2%) saturate(4763%) hue-rotate(180deg) brightness(86%) contrast(91%);
 }
 
-.gray-icon {
-  fill: #C4CAD3 !important;
+.filter-white {
+  filter: invert(100%) sepia(100%) saturate(49%) hue-rotate(148deg) brightness(112%) contrast(112%);
 }
 
+/*-----------------------------------typography -------------------------------------------*/
 .card-title {
   @include typography(15px, 500, 23px, 0.3);
   cursor: default;
@@ -57,69 +77,75 @@ section {
   @include typography(13px, 400, 21px, 0.3);
 }
 
+.sub-text {
+  @extend %sub-text;
+  font-weight: 400;
+  opacity: 0.5;
+  color: #41475E;
+}
 
-
+/*------------------------------------padding and margin--------------------------------- */
 .pl-28 {
-  padding-left: rem-calc(14px); // Default for mobile
+  padding-left: rem-calc(14px);  
 
-  @media (min-width: 769px) { // Adjust the breakpoint as needed
-    padding-left: rem-calc(28px); // Full size for desktop
+  @media (min-width: 769px) {  
+    padding-left: rem-calc(28px);  
   }
 }
 
 .pb-28 {
-  padding-bottom: rem-calc(14px); // Default for mobile
+  padding-bottom: rem-calc(14px);  
 
-  @media (min-width: 769px) { // Adjust the breakpoint as needed
-    padding-bottom: rem-calc(28px); // Full size for desktop
+  @media (min-width: 769px) {  
+    padding-bottom: rem-calc(28px);  
   }
 }
 
 .pt-28 {
-  padding-top: rem-calc(14px); // Default for mobile
+  padding-top: rem-calc(14px);  
 
-  @media (min-width: 769px) { // Adjust the breakpoint as needed
-    padding-top: rem-calc(28px); // Full size for desktop
+  @media (min-width: 769px) {  
+    padding-top: rem-calc(28px);  
   }
 }
 
 .pr-28 {
-  padding-right: rem-calc(14px); // Default for mobile
+  padding-right: rem-calc(14px);  
 
-  @media (min-width: 769px) { // Adjust the breakpoint as needed
-    padding-right: rem-calc(28px); // Full size for desktop
+  @media (min-width: 769px) {  
+    padding-right: rem-calc(28px);  
   }
 }
 
 .pl-24 {
-  padding-left: rem-calc(12px); // Default for mobile
+  padding-left: rem-calc(12px);  
 
-  @media (min-width: 769px) { // Adjust the breakpoint as needed
-    padding-left: rem-calc(24px); // Full size for desktop
+  @media (min-width: 769px) {  
+    padding-left: rem-calc(24px);  
   }
 }
 
 .pb-24 {
-  padding-bottom: rem-calc(12px); // Default for mobile
+  padding-bottom: rem-calc(12px);  
 
-  @media (min-width: 769px) { // Adjust the breakpoint as needed
-    padding-bottom: rem-calc(24px); // Full size for desktop
+  @media (min-width: 769px) {  
+    padding-bottom: rem-calc(24px);  
   }
 }
 
 .pt-24 {
-  padding-top: rem-calc(12px); // Default for mobile
+  padding-top: rem-calc(12px);  
 
-  @media (min-width: 769px) { // Adjust the breakpoint as needed
-    padding-top: rem-calc(24px); // Full size for desktop
+  @media (min-width: 769px) {  
+    padding-top: rem-calc(24px);  
   }
 }
 
 .pr-24 {
-  padding-right: rem-calc(12px); // Default for mobile
+  padding-right: rem-calc(12px);  
 
-  @media (min-width: 769px) { // Adjust the breakpoint as needed
-    padding-right: rem-calc(24px); // Full size for desktop
+  @media (min-width: 769px) {  
+    padding-right: rem-calc(24px);  
   }
 }
 
