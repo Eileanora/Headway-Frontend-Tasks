@@ -1,0 +1,37 @@
+.post {
+  gap: rem-calc(16px);
+  @include add-padding(0, 0, 16px, 16px);
+
+  &__header {
+    @include flex(row, space-between);
+
+    .label {
+      // padding-top: 10px;
+      @include add-label-color(#08A0F7, #1778B0);
+    }
+  }
+
+  &__body,
+  &__footer {
+    padding-right: rem-calc(16px);
+  }
+
+  &__footer {
+    @include flex(row, space-between, center);
+
+    .wrapper {
+      @include flex(row, null, center);
+      gap: rem-calc(24px);
+    }
+
+    .icon-text-wrapper {
+      @include flex(row, null, center);
+      gap: rem-calc(4px);
+    }
+
+    .avatar img {
+      width: 24px;
+    }
+  }
+
+}

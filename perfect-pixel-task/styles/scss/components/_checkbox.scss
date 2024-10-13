@@ -1,0 +1,46 @@
+
+%input-toggle {
+  input {
+    @include flex(row, center, center);
+    width: rem-calc(24px);
+    aspect-ratio: 1;
+    cursor: pointer;
+    background-color: rgba($color: #08A0F7, $alpha: 0.06);
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  input::before {
+    content: '';
+    background-image: url(/assests/images/icons/checkmark.svg);
+    width: 11px;
+    height: 8px;
+    background-repeat: no-repeat;
+    transform: scale(0);
+    transition: transform 0.2s ease-in-out;
+    pointer-events: none;
+  }
+
+  input:checked {
+    background-color: #08A0F7;
+    @include add-border(1.5px, solid, #FFFFFF, null);
+  }
+
+  input:checked::before {
+    transform: scale(1);
+  }
+}
+
+.checkbox {
+  @extend %input-toggle;
+  input[type='checkbox'] {
+    @include add-border(1px, solid, #08A0F7, 3px);
+  }
+}
+
+.radio {
+  @extend %input-toggle;
+  input[type='radio'] {
+    @include add-border(1px, solid, #08A0F7, 1px);
+    border-radius: 50%;
+  }
+}
