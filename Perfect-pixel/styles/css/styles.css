@@ -285,23 +285,27 @@ section {
   width: 100%;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 main {
-  width: 100%;
+  width: 95%;
   margin: 0 auto;
-  padding-top: 1.5rem;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: space-between;
+  align-items: flex-start;
   flex-wrap: wrap;
-  gap: 1.5625rem;
+  gap: 1rem;
 }
 
 .col-wrapper {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  gap: 1.5625rem;
+  gap: 1rem;
 }
 
 section {
@@ -326,38 +330,40 @@ section {
   width: 100%;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 1087px) {
+  main {
+    width: 97%;
+  }
   .container,
   .col-408 {
-    width: 53.125%;
+    width: 49%;
   }
   .col-281 {
-    width: 36.5885416667%;
+    width: 100%;
   }
   .col-319 {
-    width: 41.5364583333%;
+    width: 48%;
   }
   .col-348 {
-    width: 21.75rem;
+    width: 48%;
   }
-  .w-408 {
-    width: 53.125%;
+  .tb-row {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: wrap;
   }
-  .w-281 {
-    width: 36.5885416667%;
-  }
-  .w-319 {
-    width: 41.5364583333%;
-  }
-  .w-348 {
-    width: 21.75rem;
+  .tb-row section {
+    width: 48%;
+    aspect-ratio: 1.5/1;
   }
 }
 @media (min-width: 1088px) {
   .container {
     width: 95.5882352941%;
   }
-  main {
+  main,
+  body {
     gap: 2.5rem;
   }
   .col-wrapper {
@@ -374,15 +380,6 @@ section {
   }
   .col-348 {
     width: 21.75rem;
-  }
-  .w-408 {
-    width: 37.5%;
-  }
-  .w-281 {
-    width: 25.8272058824%;
-  }
-  .w-319 {
-    width: 29.3198529412%;
   }
 }
 .buttons {

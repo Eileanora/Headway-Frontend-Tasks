@@ -30,20 +30,24 @@
   width: 100%;
 }
 
-main {
-  width: 100%;
-  margin: 0 auto;
-  padding-top: rem-calc(24px);
+body {
+  @include flex(column);
+  gap: rem-calc(16px);
+}
 
-  @include flex(row, space-between, space-between);
+main {
+  width: 95%;
+  margin: 0 auto;
+
+  @include flex(row, null, flex-start);
   flex-wrap: wrap;
-  gap: rem-calc(25px);
+  gap: rem-calc(16px);
 }
 
 .col-wrapper {
   @include flex(column);
   flex-wrap: wrap;
-  gap: rem-calc(25px);
+  gap: rem-calc(16px);
 }
 
 section {
@@ -68,39 +72,53 @@ section {
   width: 100%;
 }
 
-@media (min-width: 768px) {
-  .container,
+@media (min-width: 768px) and (max-width: 1087px) {
 
+  main {
+    width: 97%;
+  }
+
+  .container,
   .col-408 {
-    width: calc(408 / 768 * 100%);
+    width:49%;
   }
 
   .col-281 {
-    width: calc(281 / 768 * 100%);
+    width: 100%;
   }
 
   .col-319 {
-    width: calc(319 / 768 * 100%);
+    width:48%;
   }
 
   .col-348 {
-    width: rem-calc(348px);
-  }
-  .w-408 {
-    width: calc(408 / 768 * 100%);
+    width:48%;
   }
 
-  .w-281 {
-    width: calc(281 / 768 * 100%);
-  }
+  .tb-row {
+    @include flex(row, null, flex-start);
+    flex-wrap: wrap;
 
-  .w-319 {
-    width: calc(319 / 768 * 100%);
+    section {
+      width: 48%;
+      aspect-ratio: 1.5/1;
+    }
   }
+  // .w-408 {
+  //   width: calc(408 / 768 * 100%);
+  // }
 
-  .w-348 {
-    width: rem-calc(348px);
-  }
+  // .w-281 {
+  //   width: calc(281 / 768 * 100%);
+  // }
+
+  // .w-319 {
+  //   width: calc(319 / 768 * 100%);
+  // }
+
+  // .w-348 {
+  //   width: rem-calc(348px);
+  // }
 }
 
 @media (min-width: 1088px) {
@@ -108,7 +126,8 @@ section {
     width: width-perc-calc(1088px, 24px);
   }
 
-  main {
+  main,
+  body {
     gap: rem-calc(40px);
   }
 
@@ -131,17 +150,17 @@ section {
   .col-348 {
     width: rem-calc(348px);
   }
-  .w-408 {
-    width: calc(408 / 1088 * 100%);
-  }
+  // .w-408 {
+  //   width: calc(408 / 1088 * 100%);
+  // }
 
-  .w-281 {
-    width: calc(281 / 1088 * 100%);
-  }
+  // .w-281 {
+  //   width: calc(281 / 1088 * 100%);
+  // }
 
-  .w-319 {
-    width: calc(319 / 1088 * 100%);
-  }
+  // .w-319 {
+  //   width: calc(319 / 1088 * 100%);
+  // }
 
   // .w-348 {
   //   width: rem-calc(348px);
