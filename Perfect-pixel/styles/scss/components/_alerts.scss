@@ -74,3 +74,8 @@
   @extend %alert;
   @include add-alert-style(#E1F2FC, #08A0F7, #08A0F7, #3387B7);
 }
+
+.alert--dark {
+  @extend %alert;
+  @include add-alert-style(#F8F9FA, #878f96, #212529, #495057);
+}

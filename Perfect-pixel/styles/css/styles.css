@@ -114,9 +114,10 @@ input {
   margin: 0 auto;
 }
 
-section, .page-header {
+section,
+.page-header {
   border-radius: 8px;
-  box-shadow: 0rem 1.875rem 3.75rem 0rem rgba(32, 56, 85, 0.1490196078);
+  box-shadow: 0rem 0rem 3.75rem 0rem rgba(32, 56, 85, 0.1490196078);
 }
 
 section,
@@ -408,6 +409,7 @@ main {
   border-radius: 0.5rem;
   border: none;
   width: 100%;
+  line-height: 1.4375rem;
 }
 
 .btn--primary {
@@ -453,7 +455,7 @@ main {
   box-shadow: none;
 }
 
-.alert--primary, .alert--attention, .alert--success, .alert--danger {
+.alert--dark, .alert--primary, .alert--attention, .alert--success, .alert--danger {
   border: 0.03125rem solid;
   border-radius: 0.5rem;
   box-shadow: 0rem 0.125rem 0.0625rem 0rem rgba(64, 72, 82, 0.0509803922);
@@ -463,7 +465,7 @@ main {
   gap: 1.25rem;
   padding: 1rem 1.25rem;
 }
-.alert--primary .alert-icon, .alert--attention .alert-icon, .alert--success .alert-icon, .alert--danger .alert-icon {
+.alert--dark .alert-icon, .alert--primary .alert-icon, .alert--attention .alert-icon, .alert--success .alert-icon, .alert--danger .alert-icon {
   font-size: 0.9375rem;
   font-weight: 600;
   line-height: 1.4375rem;
@@ -478,18 +480,18 @@ main {
   height: 28px;
   border-radius: 50%;
 }
-.alert--primary .alert-text, .alert--attention .alert-text, .alert--success .alert-text, .alert--danger .alert-text {
+.alert--dark .alert-text, .alert--primary .alert-text, .alert--attention .alert-text, .alert--success .alert-text, .alert--danger .alert-text {
   display: flex;
   flex-direction: column;
   cursor: pointer;
 }
-.alert--primary .alert-text .title, .alert--attention .alert-text .title, .alert--success .alert-text .title, .alert--danger .alert-text .title {
+.alert--dark .alert-text .title, .alert--primary .alert-text .title, .alert--attention .alert-text .title, .alert--success .alert-text .title, .alert--danger .alert-text .title {
   font-size: 0.8125rem;
   font-weight: 600;
   line-height: 1.25rem;
   letter-spacing: 0.5px;
 }
-.alert--primary .alert-text .message, .alert--attention .alert-text .message, .alert--success .alert-text .message, .alert--danger .alert-text .message {
+.alert--dark .alert-text .message, .alert--primary .alert-text .message, .alert--attention .alert-text .message, .alert--success .alert-text .message, .alert--danger .alert-text .message {
   font-size: 0.6875rem;
   font-weight: 400;
   line-height: 1.0625rem;
@@ -590,6 +592,30 @@ main {
 }
 .alert--primary .alert-icon:hover {
   background-color: #0680c6;
+}
+
+.alert--dark {
+  background-color: #F8F9FA;
+  border-color: #878f96;
+}
+.alert--dark .alert-text .title {
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+  color: #212529;
+}
+.alert--dark .alert-text .title:hover {
+  color: rgba(10, 12, 13, 0.6);
+}
+.alert--dark .alert-text .message {
+  color: #495057;
+}
+.alert--dark .alert-icon {
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  background-color: #878f96;
+}
+.alert--dark .alert-icon:hover {
+  background-color: #6d767d;
 }
 
 .progress {
@@ -736,9 +762,17 @@ main {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 90%;
+  width: 95%;
   gap: 2.5rem;
   padding: 0.75rem 0;
+}
+
+.mb-menu {
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+.mb-menu:hover {
+  color: #a7b0bd;
 }
 
 .logo {
@@ -910,6 +944,7 @@ nav .active:hover {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: baseline;
 }
 .labels .container {
   width: 100%;
@@ -1018,8 +1053,6 @@ nav .active:hover {
   position: absolute;
   left: 0;
   top: calc(100% + 1rem);
-  max-height: 22.75rem;
-  overflow-y: auto;
   visibility: hidden;
   pointer-events: none;
   opacity: 0;
@@ -1210,11 +1243,17 @@ nav .active:hover {
   flex-direction: row;
   justify-content: flex-end;
 }
+.design-hp__header .header__title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3125rem;
+}
 .design-hp__header .wrapper {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 0.25rem;
+  margin-left: -3px;
 }
 .design-hp__body {
   display: flex;
@@ -1270,6 +1309,8 @@ nav .active:hover {
 .design-hp .ppl-avatars img {
   border: 0.09375rem solid white;
   border-radius: 50%;
+}
+.design-hp .ppl-avatars img:nth-of-type(n+2) {
   margin-left: -15px;
 }
 

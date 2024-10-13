@@ -7,10 +7,16 @@
     .header__icons {
       @include flex(row, flex-end);
     }
+
+    .header__title {
+      @include flex(column, null);
+      gap: rem-calc(5px);
+    }
   
     .wrapper {
       @include flex(row, null, center);
       gap: rem-calc(4px);
+      margin-left: -3px;
     }
   
   }
@@ -59,7 +65,10 @@
     img {
       @include add-border(1.5px, solid, white);
       border-radius: 50%;
-      margin-left: -15px;
+      
+      &:nth-of-type(n+2) {
+        margin-left: -15px;
+      }
     }
   }
 }

@@ -1,11 +1,11 @@
 .container {
-  // width: 84%;
   margin: 0 auto;
 }
 
-section, .page-header{
+section,
+.page-header{
   border-radius: 8px;
-  @include add-shadow(#20385526, 0, 30px, 60px, 0);
+  @include add-shadow(#20385526, 0, 0, 60px, 0);
 }
 
 section,
@@ -70,7 +70,7 @@ section {
 .card-title {
   @include typography(15px, 500, 23px, 0.3);
   cursor: default;
-  // line-height: 0;
+  // line-height: 1;
 }
 
 .text-13 {

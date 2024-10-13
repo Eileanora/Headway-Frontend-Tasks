@@ -2,10 +2,14 @@
   width: 100%;
   .container {
     @include flex(row, space-between, center);
-    width: 90%;
+    width: 95%;
     gap: rem-calc(40px);
     padding: rem-calc(12px) 0;
   }
+}
+
+.mb-menu {
+  @include add-text-hover(#C4CAD3);
 }
 
 .logo {

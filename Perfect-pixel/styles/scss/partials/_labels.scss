@@ -5,7 +5,7 @@
   @include add-shadow($shadow-color-2, 0, 10, 30, 0);
 
   .labels__header {
-    @include flex(row, space-between);
+    @include flex(row, space-between, baseline);
 
     h2 {
       @extend %btn-font;

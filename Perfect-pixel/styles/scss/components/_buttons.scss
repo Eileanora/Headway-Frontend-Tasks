@@ -12,6 +12,7 @@
   border-radius: rem-calc(8px);
   border: none;
   width: 100%;
+  line-height: rem-calc(23px);
 }
 
 @mixin add-btn-style($bg-color, $txt-color) {
