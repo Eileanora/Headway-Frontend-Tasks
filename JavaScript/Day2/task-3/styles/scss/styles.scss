@@ -1,0 +1,20 @@
+@import './utils/reset', './utils/variables', './utils/mixins', './utils/functions', './utils/placeholders';
+
+@import './components/table';
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
+
+html {
+  font-size: 16px;
+}
+
+html, body {
+  font-family: $font-family;
+  color: $font-color;
+  font-weight: $font-weight;
+}
+
+body {
+  width: 100%;
+  margin-top: rem-calc(80px);
+  @extend %flex-center;
+}
