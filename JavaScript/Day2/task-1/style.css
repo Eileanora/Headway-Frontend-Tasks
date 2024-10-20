@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container,
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 20px;
+    gap: 8px;
+    width: fit-content;
+}
+
+form,
+.wrapper {
+    display: inline-flex;
+    gap: 8px;
+}
+
+button,
+input {
+    padding: 1px 2px;
+}
+
+button {
+    cursor: pointer;
+}
+
+#display {
+    border: 2px solid lightskyblue;
+}
+
+.big-wrapper::after {
+    content: ' ';
+    display: block;
+    width: 100%;
+    height: 1px;
+    margin-top: 8px;
+
+    background-color: black;
+}
+
+#output-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+#output-list li {
+  list-style-type: none;
+}
