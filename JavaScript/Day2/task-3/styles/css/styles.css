@@ -49,21 +49,24 @@ input {
 }
 
 /* Typography */
-/* typography */
-body {
+.container {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.table {
-  font-size: 0.875rem;
-  --bs-table-striped-bg: #102C3805;
-  display: block;
-  overflow-x: auto !important;
+.table-wrapper {
   box-shadow: 0rem 0.25rem 0.75rem 0rem rgba(36, 20, 82, 0.15);
   border: 0.0625rem solid rgb(234, 241, 243);
   border-radius: 0.5rem;
+}
+
+.table {
+  font-size: 0.875rem;
+  table-layout: fixed;
+  --bs-table-striped-bg: #102C3805;
+  width: 31.25rem;
+  margin-bottom: 0;
 }
 .table__head {
   color: rgba(16, 44, 56, 0.5);
@@ -81,11 +84,21 @@ body {
 .table td {
   padding: 1rem;
 }
+.table th {
+  line-height: 1.5rem;
+}
 
 .form-check-input {
   width: 1.125rem;
   height: 1.125rem;
   border: 2px solid rgba(16, 44, 56, 0.5);
+  transition: transform 0.2s ease-in-out;
+}
+.form-check-input:checked {
+  transform: scale(1.1);
+}
+.form-check-input:hover {
+  cursor: pointer;
 }
 
 .btn-wrapper img {
@@ -113,7 +126,6 @@ html, body {
   font-weight: 400;
 }
 
-body {
-  width: 100%;
-  margin-top: 5rem;
+.container {
+  margin-top: 2.5rem;
 }/*# sourceMappingURL=styles.css.map */

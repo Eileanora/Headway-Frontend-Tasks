@@ -9,7 +9,7 @@ let tableData = [
   { 'name': 'Arlene McCoy', 'company': 'Gillette', 'cart': '429 €' },
   { 'name': 'Jenny Wilson', 'company': 'MasterCard', 'cart': '826 €' },
   { 'name': 'Kristin Watson', 'company': 'Gillette', 'cart': '561 €' },
-  { 'name': 'Cameron Williamson', 'company': 'Louis Vuitton', 'cart': '540 €' }
+  { 'name': 'Cameron Williamson', 'company': 'Louis Vuitton', 'cart': '540 €' },
 ];
 
 
@@ -62,7 +62,7 @@ function createHeader() {
   app.headerData.forEach((item) => {
     let th = document.createElement('th');
     th.textContent = item;
-    th.classList.add('col-1', 'align-middle');
+    th.classList.add('col', 'align-middle');
     if (item === 'User') th.classList.add('text-center');
     if (item === 'Cart') th.classList.add('text-end');
     headerRow.appendChild(th);

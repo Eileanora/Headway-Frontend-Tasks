@@ -13,8 +13,7 @@ html, body {
   font-weight: $font-weight;
 }
 
-body {
-  width: 100%;
-  margin-top: rem-calc(80px);
+.container {
+  margin-top: rem-calc(40px);
   @extend %flex-center;
 }
