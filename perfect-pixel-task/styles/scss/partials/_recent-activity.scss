@@ -1,0 +1,50 @@
+.recent-activity {
+  gap: rem-calc(28px);
+
+  &__body {
+    @include flex(column);
+    gap: rem-calc(28px);
+  }
+
+  &__item {
+    @include flex(row, null, flex-start); 
+    gap: rem-calc(12px);
+  }
+
+  &__icon {
+    @extend %icon-bg;
+  }
+
+  &__item:nth-of-type(1) .recent-activity__icon {
+    background-color: #5DC983;
+    @include add-bg-hover(#5DC983);
+  }
+
+  &__item:nth-of-type(2) .recent-activity__icon {
+    background-color: #7784EE;
+    @include add-bg-hover(#7784EE);
+  }
+
+  &__item:nth-of-type(3) .recent-activity__icon {
+    background-color: #FBA63C;
+    @include add-bg-hover(#FBA63C);
+  }
+
+  &__text {
+    @include flex(column);
+    gap: rem-calc(8px);
+    width: 100%;
+
+    @include add-text-hover(#41475E, 0.5);
+  
+    .title {
+      @include typography(12px, 400, 18px, 0.5px);
+      width: 100%;
+      color: #41475E;
+    }
+
+    span {
+      font-weight: 600;
+    }
+  }
+}

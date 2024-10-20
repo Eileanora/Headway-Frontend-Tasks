@@ -1,0 +1,37 @@
+@mixin flex($direction: row, $justify: null, $align: null) {
+  display: flex;
+  flex-direction: $direction;
+  @if $justify != null {
+    justify-content: $justify;
+  }
+  @if $align != null {
+    align-items: $align;
+  }
+}
+
+@mixin add-bg-hover($bg-color, $opacity: 1) {
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  &:hover {
+    background-color: darken(rgba($bg-color, $opacity), 10%);
+  }
+}
+
+@mixin add-shadow($shadow-color, $shadow-offset-x, $shadow-offset-y, $shadow-blur, $shadow-spread) {
+  box-shadow: rem-calc($shadow-offset-x) rem-calc($shadow-offset-y) rem-calc($shadow-blur) rem-calc($shadow-spread) $shadow-color;
+}
+
+@mixin add-text-hover($color, $opacity: 1) {
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+  &:hover {
+    color: darken(rgba($color, $opacity), 10%);
+  }
+}
+
+@mixin add-border($width, $style, $color, $radius: null) {
+  border: rem-calc($width) $style $color;
+  @if $radius != null {
+    border-radius: rem-calc($radius);
+  }
+}

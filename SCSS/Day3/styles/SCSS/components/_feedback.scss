@@ -1,0 +1,40 @@
+.feedback {
+  .sec-header {
+    @include flex(column);
+    text-align: center;
+  }
+}
+
+.feedback-cards-wrapper {
+  @extend %flex-wrap;
+  gap: rem-calc(32px);
+}
+
+.feedback-card {
+  @include btn($candy-grap-100, null, 32px, 20px, 32px, 20px, 25px, null, false);
+  @include flex(column);
+  gap: rem-calc(18px);
+
+}
+
+.feedback-rate {
+  width: rem-calc(calc(20*5 + 4*4));
+  height: 20px;
+  background-image: url(/assets/images/common/star.svg);
+  background-repeat: space;
+}
+
+.feedback-user-info {
+  @include flex(row, null, center);
+  @extend %mb-h4;
+  gap: rem-calc(15px);
+
+  img {
+    width: 48px;
+  }  
+}
+
+.feedback-user-comment {
+  @extend %mb-17;
+  font-family: $font-family-standard;
+}
