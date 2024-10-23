@@ -1,0 +1,309 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html, body, div, span, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, code, em, img, small, strike, strong, sub, sup, tt, b, u, i, ol, ul, li, fieldset, form, label, table, caption, tbody, tfoot, thead, tr, th, td, main, canvas, embed, footer, header, nav, section, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: none;
+     -moz-text-size-adjust: none;
+          text-size-adjust: none;
+}
+
+footer, header, nav, section, main {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+/* Colors */
+/* Typography */
+header {
+  gap: 0.3125rem;
+}
+header h1 {
+  font-size: 2.5rem;
+  line-height: 1.5rem;
+  font-weight: 800;
+}
+header p {
+  font-size: 0.8rem;
+  line-height: 2rem;
+  font-weight: 600;
+  color: #777C88;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  header {
+    gap: 0.625rem;
+  }
+  header h1 {
+    font-size: 3rem;
+    line-height: 2rem;
+  }
+  header p {
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+  }
+}
+@media (min-width: 1025px) {
+  header {
+    gap: 1rem;
+  }
+  header h1 {
+    font-size: 3.5rem;
+    line-height: 3rem;
+  }
+  header p {
+    font-size: 1.1rem;
+    line-height: 1rem;
+  }
+}
+main {
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.chart-header {
+  gap: 0.7rem;
+}
+.chart-header .label {
+  font-size: 0.625rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+  background-color: #E9EAEC;
+  color: #777C88;
+  border-radius: 12.5rem;
+  padding: 0.01rem 0.8rem;
+}
+.chart-header .currency-label,
+.chart-header .exchange-rate {
+  font-size: 1.125rem;
+  font-weight: 800;
+  line-height: 1.25rem;
+}
+.chart-header .exchange-rate {
+  font-weight: 600;
+}
+.chart-header .rate-percentage {
+  font-size: 0.625rem;
+  font-weight: 700;
+  line-height: 0.625rem;
+  color: #64CA99;
+}
+.chart-header .curr-icons {
+  gap: 0.625rem;
+}
+
+@media (min-width: 768px) {
+  .chart-header {
+    gap: 1rem;
+  }
+  .chart-header .label {
+    font-size: 0.75rem;
+  }
+  .chart-header .currency-label,
+  .chart-header .exchange-rate {
+    font-size: 1.5rem;
+  }
+  .chart-header .rate-percentage {
+    font-size: 0.875rem;
+    color: #64CA99;
+  }
+}
+@media (min-width: 1024px) {
+  main {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  #rate-chart {
+    width: 70%;
+    aspect-ratio: 1/1;
+  }
+}
+.dropdown-wrapper {
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.dropdown {
+  position: relative;
+  width: 100%;
+}
+.dropdown__text {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.25rem;
+}
+.dropdown__label, .dropdown__items {
+  border: 0.125rem solid #E9EAEC;
+  border-radius: 0.5rem;
+  border-radius: 0.5rem;
+  width: 100%;
+}
+.dropdown__label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.75rem;
+}
+.dropdown__items {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 1rem;
+  background-color: #FFFFFF;
+  border-radius: 0.5rem;
+  z-index: 1;
+  overflow-y: auto;
+  max-height: 12.5rem;
+  position: absolute;
+  left: 0;
+  top: calc(100% + 1rem);
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+}
+.dropdown__items::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  right: 5%;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #E9EAEC;
+}
+.dropdown__arrow {
+  border-bottom: 2px solid #AFBDD8;
+  border-right: 2px solid #AFBDD8;
+  position: absolute;
+  top: 48%;
+  right: 1.25rem;
+  width: 9px;
+  height: 9px;
+  transform: rotate(45deg) translateY(-50%);
+}
+.dropdown input[type=checkbox] {
+  display: none;
+}
+.dropdown input[type=checkbox]:checked ~ .dropdown__items {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.dropdown__item {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+.dropdown__item:hover {
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.dropdown__item:hover:hover {
+  background-color: #e6e6e6;
+}
+
+.dropdown__text {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1.4375rem;
+  opacity: 0.7;
+}
+
+.dropdown__item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .dropdown-wrapper {
+    gap: 2rem;
+  }
+  .dropdown {
+    width: 18.75rem;
+  }
+}
+@media (min-width: 1300px) {
+  .dropdown-wrapper {
+    width: 35%;
+  }
+  .dropdown {
+    width: 100%;
+  }
+}
+html, body {
+  font-size: 16px;
+  font-family: "Inter", sans-serif;
+  color: black;
+}
+
+.container {
+  gap: 1.25rem;
+  margin: 0 auto;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 576px) {
+  .container {
+    width: 90%;
+    max-width: 768px;
+    margin-top: 2rem;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    width: 90%;
+    max-width: 1024px;
+    margin-top: 2rem;
+    gap: 1.875rem;
+  }
+}
+@media (min-width: 1024px) {
+  .container {
+    width: 95%;
+    max-width: 3000px;
+  }
+}/*# sourceMappingURL=styles.css.map */

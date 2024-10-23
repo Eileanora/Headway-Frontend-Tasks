@@ -1,0 +1,42 @@
+@import './utils/reset', './utils/variables', './utils/mixins', './utils/functions', './utils/placeholders';
+
+@import './components/header', './components/chart', './components/dropdown';
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+
+html, body {
+    font-size: $font-size;
+    font-family: $font-family;
+    color: $primary-color;
+}
+
+.container {
+    gap: rem-calc(20px);
+    margin: 0 auto;
+    margin-top: 1.5rem;
+}
+
+@media (min-width: 576px) {
+    .container {
+        width: 90%;
+        max-width: 768px;
+        margin-top: 2rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 90%;
+        max-width: 1024px;
+        margin-top: 2rem;
+        gap: rem-calc(30px);
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        width: 95%;
+        max-width: 3000px;
+        // margin-top: 3rem;
+    }
+}

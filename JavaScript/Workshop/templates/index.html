@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forex Exchange</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="../styles/css/styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"
+/>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="d-flex flex-column container">
+    <header class="d-flex flex-column">
+      <h1>Forex Exchange</h1>
+      <p>Check out the current price for a currency pair</p>
+    </header>
+    <main class="d-flex">
+      <div class="d-flex dropdown-wrapper">
+        <!--Custom dropdown 1-->
+        <div class="dropdown">
+          <input type="checkbox" id="dropdown1">
+          <label class="dropdown__label" for="dropdown1">
+            <span class="dropdown__text">Choose Currency</span>
+            <span class="dropdown__arrow"></span>
+          </label>
+          <ul class="dropdown__items">
+            <li class="dropdown__item">item</li>
+            <li class="dropdown__item">item</li>
+            <li class="dropdown__item">item</li>
+          </ul> <!--dropdown items-->
+        </div> <!--dropdown-->
+
+        <!--Custom dropdown 2-->
+        <div class="dropdown">
+          <input type="checkbox" id="dropdown2">
+          <label class="dropdown__label" for="dropdown2"> 
+            <span class="dropdown__text">Choose Currency</span>
+            <span class="dropdown__arrow"></span>
+          </label>
+          <ul class="dropdown__items">
+            <li class="dropdown__item">item</li>
+            <li class="dropdown__item">item</li>
+            <li class="dropdown__item">item</li>
+          </ul> <!--dropdown items-->
+        </div> <!--dropdown-->
+      </div> <!--dropdown wrapper-->
+      <div class="d-flex flex-column chart-wrapper">
+        <div class="d-flex flex-column chart-header">
+          <div class="d-flex flex-row curr-icons">
+            <span class="fi fi-gr"></span>
+            <span class="fi fi-gr fis"></span>
+            <span class="label"><span>Forex.com</span></span>
+          </div> <!--curr icons-->
+          <div class="d-flex flex-row justify-content-between curr-info">
+            <span class="currency-label">EUR/USD</span>
+            <span class="exchange-rate">1.2345</span>
+          </div> <!--curr info-->
+          <div class="d-flex flex-row justify-content-end curr-rate">
+            <span class="rate-percentage">0,100323923</span>
+          </div>
+        </div> <!--chart header-->
+        <canvas id="rate-chart"></canvas>
+      </div> <!--chart wrapper-->
+    </main>
+  </div> <!--container-->
+</body>
+<script src="../scripts/main.js"></script>
+<script src="../scripts/utils.js"></script>
+</html>
