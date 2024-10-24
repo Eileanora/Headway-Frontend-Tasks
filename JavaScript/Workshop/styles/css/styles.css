@@ -100,13 +100,15 @@ main {
   gap: 0.7rem;
 }
 .chart-header .label {
+  background-color: #E9EAEC;
+  border-radius: 12.5rem;
+  padding: 0 0.5rem;
+}
+.chart-header .label span {
   font-size: 0.625rem;
   font-weight: 500;
-  line-height: 1.25rem;
-  background-color: #E9EAEC;
+  line-height: 0.625rem;
   color: #777C88;
-  border-radius: 12.5rem;
-  padding: 0.01rem 0.8rem;
 }
 .chart-header .currency-label,
 .chart-header .exchange-rate {
@@ -133,6 +135,10 @@ main {
   }
   .chart-header .label {
     font-size: 0.75rem;
+    padding: 0.01rem 0.8rem;
+  }
+  .chart-header .label span {
+    line-height: 1.25rem;
   }
   .chart-header .currency-label,
   .chart-header .exchange-rate {
@@ -160,6 +166,8 @@ main {
 }
 
 span.fi {
+  width: 1.5rem;
+  height: 1.5rem;
   border-radius: 50%;
 }
 
@@ -282,6 +290,11 @@ span.fi {
     line-height: 1.4375rem;
   }
 }
+.dropdown--selected {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
 @media (min-width: 1300px) {
   .dropdown-wrapper {
     width: 35%;

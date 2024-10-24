@@ -36,10 +36,12 @@
   }
 }
 
-@mixin typography($size, $weight, $line-height, $letter-spacing: null) {
+@mixin typography($size, $weight, $line-height: null, $letter-spacing: null) {
   font-size: rem-calc($size);
   font-weight: $weight;
-  line-height: rem-calc($line-height);
+  @if $line-height != null {
+    line-height: rem-calc($line-height);
+  }
   @if $letter-spacing != null {
     @if unitless($letter-spacing) {
       $letter-spacing: $letter-spacing + 0px;

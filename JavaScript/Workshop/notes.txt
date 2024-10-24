@@ -2,3 +2,25 @@
 2- line height needs to be adjusted for header mobile (done)
 3- drop down items font size needs to be smaller in mobile (done)
 4- flag icons modification (done)
+
+
+// steps
+* store api key securely in .env file and append it to the url
+1- use axios to fetch data from the API
+    apis used: 1- fetch currencies
+               2- fetch time series data
+
+2- call the api to load data into the drop down menu
+    * API returns
+        1- currency code (3 chars)
+        2- currency name (country + currency)
+    * set data attribute to the drop down menu to be currency code
+
+when the user selects a currency from the drop down menu
+    1- Check if both currencies are selected
+    2- if yes, get country code for both and set the class name to the flag icon (if class already exists, remove it)
+    3- change the currency code in the label field and mark it as disabled in the drop down menu
+    2- combine both currencies and call the api to get the exchange rate
+
+* if one menu is open, close it when the user clicks on the other menu
+* if one currency is selected in one menu, disable it in the other menu

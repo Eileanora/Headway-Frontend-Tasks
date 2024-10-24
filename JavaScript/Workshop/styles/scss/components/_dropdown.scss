@@ -5,6 +5,8 @@
 
 }
 span.fi {
+    width: 1.5rem;
+    height: 1.5rem;
     border-radius: 50%;
 }
 .dropdown {
@@ -129,6 +131,11 @@ span.fi {
             @include typography(14px, 500, 23px);
         }
     }
+}
+
+.dropdown--selected {
+    pointer-events: none;
+    opacity: 0.5;
 }
 
 @media (min-width: 1300px) {

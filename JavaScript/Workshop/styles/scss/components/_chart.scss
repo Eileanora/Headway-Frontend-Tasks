@@ -7,11 +7,14 @@ main {
     gap: 0.7rem;
 
     .label {
-        @include typography(10px, 500, 20px);
         background-color: #E9EAEC;
-        color: $secondary-color;
         border-radius: rem-calc(200px);
-        padding: 0.01rem 0.8rem;
+        padding: 0 0.5rem;
+
+        span {
+            @include typography(10px, 500, 10px);
+            color: $secondary-color;
+        }
     }
 
     .currency-label,
@@ -34,13 +37,15 @@ main {
 }
 
 
-
-
 @media (min-width: 768px) {
     .chart-header {
         gap: 1rem;
         .label {
             font-size: rem-calc(12px);
+            padding: 0.01rem 0.8rem;
+            span {
+                line-height: rem-calc(20px);
+            };
         }
     
         .currency-label,
