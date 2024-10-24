@@ -1,12 +1,14 @@
 /*--------------------------------------colors------------------------------------------------*/
 /* colors */
 $white: #FFFFFF;
+$black: #000000;
 $umbra-700 : #191919;
 $umbra-400: #797979;
 $umbra-500: #4C4C4C;
 $umbra-3oo: #A5A5A5;
 $rise-600: #FEC430;
 $candy-grap-100: #F1EFFD;
+$candy-grap-600: #755AE8;
 $candy-grap-800: #46368B;
 $rise-300: #FFE7AC;
 
@@ -19,6 +21,9 @@ $sub-title-color: $umbra-3oo;
 $header-color: $umbra-700;
 $lg-body-text-color: $umbra-400;
 $mb-body-text-color: $umbra-500;
+
+
+$breakpoint-lg: rem-calc(1440px);
 
 /*---------------------------------------fonts------------------------------------------------*/
 // typeface

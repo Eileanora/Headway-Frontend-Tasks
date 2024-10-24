@@ -1,0 +1,69 @@
+main {
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.chart-header {
+    gap: 0.7rem;
+
+    .label {
+        @include typography(10px, 500, 20px);
+        background-color: #E9EAEC;
+        color: $secondary-color;
+        border-radius: rem-calc(200px);
+        padding: 0.01rem 0.8rem;
+    }
+
+    .currency-label,
+    .exchange-rate {
+        @include typography(18px, 800, 20px);
+    }
+
+    .exchange-rate {
+        font-weight: 600;
+    }
+
+    .rate-percentage {
+        @include typography(10px, 700, 10px);
+        color: #64CA99;
+    }
+
+    .curr-icons {
+        gap: rem-calc(10px);
+    }
+}
+
+
+
+
+@media (min-width: 768px) {
+    .chart-header {
+        gap: 1rem;
+        .label {
+            font-size: rem-calc(12px);
+        }
+    
+        .currency-label,
+        .exchange-rate {
+            font-size: rem-calc(24px);
+        }
+    
+        .rate-percentage {
+            font-size: rem-calc(14px);
+            color: #64CA99;
+        }
+    }
+}
+
+
+@media (min-width: 1024px) {
+    main {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    #rate-chart {
+        width: 70%;
+        aspect-ratio: 1/1;
+    }
+}

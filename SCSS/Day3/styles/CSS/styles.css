@@ -106,7 +106,6 @@ input {
   font-weight: 900;
   line-height: 1.515rem;
   color: #191919;
-  letter-spacing: -2%;
 }
 
 .sec-header .sec-subtitle {
@@ -115,11 +114,10 @@ input {
   line-height: 1.01rem;
 }
 
-.plan-header .plan-name, .feature-card h4, .trip-card .trip-info h4 {
+.contact-details-item h4, .contact-form-group label, .feedback-user-info, .plan-header .plan-name, .feature-card h4, .trip-card .trip-info h4 {
   font-size: 1.25rem;
   font-weight: 900;
   line-height: 1.2625rem;
-  letter-spacing: -2%;
 }
 
 .plan-header .plan-price {
@@ -128,11 +126,16 @@ input {
   line-height: 2.2725rem;
 }
 
-.plan-body p, .plan-header .plan-desc, .feature-card p {
+.contact-form-group input[type=text]::-moz-placeholder, .contact-form-group input[type=email]::-moz-placeholder, .contact-form-group textarea::-moz-placeholder {
   font-size: 1.0625rem;
   font-weight: 400;
   line-height: 1.75rem;
-  letter-spacing: -3%;
+}
+
+.contact-details-item p, .contact-form-group button, .contact-form-group input[type=text]::placeholder, .contact-form-group input[type=email]::placeholder, .contact-form-group textarea::placeholder, .feedback-user-comment, .plan-header .plan-desc, .feature-card p {
+  font-size: 1.0625rem;
+  font-weight: 400;
+  line-height: 1.75rem;
 }
 
 /*-----------------------Flexbox-----------------------*/
@@ -142,13 +145,12 @@ input {
   scrollbar-width: none;
 }
 
-.plan-cards-wrapper, .feature-cards-wrapper {
+.contact-details-item, .contact-details, .contact > .container, .feedback-cards-wrapper, .plan-cards-wrapper, .feature-cards-wrapper {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 2.5rem;
 }
 
 /*-----------------------Common styles-----------------------*/
@@ -186,7 +188,7 @@ input {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  margin-top: 2.25rem;
+  margin-top: 3.9375rem;
 }
 .header-body h1 {
   font-size: 2.375rem;
@@ -210,7 +212,7 @@ input {
 .header-body .arrow {
   position: absolute;
   left: 7.6%;
-  bottom: 3%;
+  bottom: 15%;
 }
 .header-body .header-scroll-down {
   margin-top: 5.75rem;
@@ -250,6 +252,10 @@ input {
   margin-top: 4.75rem;
 }
 
+.mb-dp-n {
+  display: none;
+}
+
 .sec-header .sec-subtitle {
   color: #A5A5A5;
   margin-bottom: 0.75rem;
@@ -259,6 +265,14 @@ input {
   margin-bottom: 3rem;
 }
 
+@media (min-width: rem-calc(1440px)) {
+  .lg-db {
+    display: block !important;
+  }
+  .mb-dp-n {
+    display: none !important;
+  }
+}
 .trip-cards-wrapper {
   display: flex;
   flex-direction: row;
@@ -299,6 +313,12 @@ input {
   color: #797979;
 }
 
+@media (min-width: rem-calc(1440px)) {
+  .trip-card img {
+    width: 380px;
+    height: 600px;
+  }
+}
 .features .wrapper {
   background-color: #F1EFFD;
   border-radius: 1.5625rem;
@@ -340,6 +360,7 @@ input {
 }
 
 .plan-cards-wrapper {
+  gap: 2.5rem;
   font-family: "Lama sans standard", sans-serif;
 }
 .plan-cards-wrapper .eco-plan, .plan-cards-wrapper .business-plan {
@@ -347,18 +368,20 @@ input {
 }
 .plan-cards-wrapper .family-plan {
   background-color: #46368B;
+  color: #FFFFFF;
 }
 
 .plan-card {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   color: #191919;
   border-radius: 1.5625rem;
+  padding: 2.25rem 1.5rem 2.125rem 1.5rem;
   cursor: pointer;
-  padding: 2.25rem 0rem;
   gap: 2rem;
+  border: 0.09375rem solid #191919;
+  border-radius: 1.5625rem;
+  box-shadow: 0.625rem 0.625rem 0rem 0rem #000000;
 }
 
 .plan-header {
@@ -374,22 +397,205 @@ input {
   font-weight: 700;
   line-height: 1.1925rem;
 }
-.plan-header .plan-header::after {
+.plan-header::after {
   content: "";
   width: 100%;
   height: 1px;
   background-color: #4C4C4C;
+  margin-top: 1rem;
 }
 
 .plan-body {
   display: flex;
   flex-direction: column;
-  gap: 1.1875rem;
 }
 .plan-body .plan-body-li {
   display: flex;
   flex-direction: row;
+  margin-bottom: 1.1875rem;
+  gap: 3px;
 }
+
+.plan-body, .plan-footer {
+  font-weight: 600;
+}
+
+.plan-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  border: 0.0625rem solid #191919;
+  border-radius: 0.9375rem;
+  padding: 0.9375rem 0;
+  line-height: 0;
+  width: 100%;
+}
+
+.feedback .sec-header {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.feedback-cards-wrapper {
+  gap: 2rem;
+}
+
+.feedback-card {
+  background-color: #F1EFFD;
+  border-radius: 1.5625rem;
+  padding: 2rem 1.25rem 2rem 1.25rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 1.125rem;
+}
+
+.feedback-rate {
+  width: 7.25rem;
+  height: 20px;
+  background-image: url(/assets/images/common/star.svg);
+  background-repeat: space;
+}
+
+.feedback-user-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.9375rem;
+}
+.feedback-user-info img {
+  width: 48px;
+}
+
+.feedback-user-comment {
+  font-family: "Lama sans standard", sans-serif;
+}
+
+.feedback .sec-header {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.feedback-cards-wrapper {
+  gap: 2rem;
+}
+
+.feedback-card {
+  background-color: #F1EFFD;
+  border-radius: 1.5625rem;
+  padding: 2rem 1.25rem 2rem 1.25rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 1.125rem;
+}
+
+.feedback-rate {
+  width: 7.25rem;
+  height: 20px;
+  background-image: url(/assets/images/common/star.svg);
+  background-repeat: space;
+}
+
+.feedback-user-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.9375rem;
+}
+.feedback-user-info img {
+  width: 48px;
+}
+
+.feedback-user-comment {
+  font-family: "Lama sans standard", sans-serif;
+}
+
+.contact > .container {
+  gap: 2.5rem;
+}
+
+#contact-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #FFE7AC;
+  color: #191919;
+  border-radius: 1.5625rem;
+  padding: 2.25rem 1.5rem 2.125rem 1.5rem;
+  cursor: pointer;
+  gap: 1.5rem;
+  border: 0.09375rem solid #191919;
+  border-radius: 1.5625rem;
+  box-shadow: 0.625rem 0.625rem 0rem 0rem #000000;
+}
+
+.contact-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+.contact-form-group input[type=text], .contact-form-group input[type=email], .contact-form-group textarea {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.01rem;
+  color: #191919;
+  border: 0.09375rem solid #191919;
+  border-radius: 0.9375rem;
+  font-family: "Lama sans standard", sans-serif;
+  padding: 0.9375rem 0.75rem;
+  width: 100%;
+}
+.contact-form-group input[type=text]::-moz-placeholder, .contact-form-group input[type=email]::-moz-placeholder, .contact-form-group textarea::-moz-placeholder {
+  color: #A5A5A5;
+}
+.contact-form-group input[type=text]::placeholder, .contact-form-group input[type=email]::placeholder, .contact-form-group textarea::placeholder {
+  color: #A5A5A5;
+}
+.contact-form-group textarea {
+  height: 7.5rem;
+}
+.contact-form-group button {
+  background-color: #191919;
+  color: #FFFFFF;
+  border-radius: 0.9375rem;
+  padding: 0.75rem 1.875rem 0.75rem 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: "Lama sans", sans-serif;
+}
+.contact-form-group button:hover {
+  background-color: black;
+}
+
+.contact-details {
+  gap: 2.5rem;
+}
+
+.contact-details-item h4 {
+  margin-bottom: 1.25rem;
+  color: #191919;
+}
+.contact-details-item img {
+  width: 140px;
+  margin-bottom: 1.75rem;
+}
+.contact-details-item p {
+  font-family: "Lama sans standard", sans-serif;
+  color: #4C4C4C;
+}
+.contact-details-item .link {
+  cursor: pointer;
+  color: #755AE8;
+}
+.contact-details-item .contact-details-item-txt {
+  text-align: center;
+}
+
 body {
   font-family: "Lama sans", sans-serif;
   font-weight: 400;
