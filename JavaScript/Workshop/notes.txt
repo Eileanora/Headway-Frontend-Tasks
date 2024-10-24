@@ -1,0 +1,4 @@
+1- header font needs modification mobile size (done)
+2- line height needs to be adjusted for header mobile (done)
+3- drop down items font size needs to be smaller in mobile (done)
+4- flag icons modification (done)

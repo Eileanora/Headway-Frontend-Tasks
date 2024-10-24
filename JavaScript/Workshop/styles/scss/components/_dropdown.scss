@@ -1,27 +1,31 @@
 .dropdown-wrapper {
     flex-direction: column;
     gap: 1rem;
-}
 
+
+}
+span.fi {
+    border-radius: 50%;
+}
 .dropdown {
     position: relative;
     width: 100%;
 
     &__text {
         @include flex(row, null, center);
-        gap: rem-calc(20px);
+        gap: 1.5rem;
     }
 
     &__label,
     &__items {
         @include add-border(2px, solid, #E9EAEC, 8px);
-        border-radius: rem-calc(8px);
+        border-radius: 0.5rem;
         width: 100%;
     }
 
     &__label {
         @include flex(row, null, center);
-        padding: rem-calc(12px);
+        padding: 0.5rem 1rem;
     }
 
     &__items {
@@ -32,11 +36,11 @@
         border-radius: 0.5rem;
         z-index: 1;
         overflow-y: auto;
-        max-height: rem-calc(200px);
+        max-height: rem-calc(130px);
 
         position: absolute;
         left: 0;
-        top: calc(100% + 1rem);
+        top: calc(100% + 0.5rem);
 
         visibility: hidden;
         pointer-events: none;
@@ -65,10 +69,10 @@
 
         position: absolute;
         top: 48%;
-        right: rem-calc(20px);
+        right: 1.5rem;
 
-        width: 9px;
-        height: 9px;
+        width: 0.5rem;
+        height: 0.5rem;
         transform: rotate(45deg) translateY(-50%);
     }
 
@@ -84,23 +88,20 @@
     }
 
     &__item {
+        @include typography(14px, 500, 10px);
         padding: 0.5rem 1rem;
         border-radius: rem-calc(8px);
+        width: 100%;
 
         &:hover {
             @include add-bg-hover(white);
         }
     }
-}
 
-.dropdown__text {
-    @include typography(13px, 500, 23px);
-    opacity: 0.7;
-}
-
-.dropdown__item {
-    @include flex(row, space-between, center);
-    width: 100%;
+    &__text {
+        @include typography(12px, 500, 23px);
+        opacity: 0.7;
+    }
 }
 
 @media (min-width: 1024px) {
@@ -110,6 +111,23 @@
 
     .dropdown {
         width: 18.75rem;
+
+        &__label {
+            padding: 0.75rem 1rem;
+        }
+
+        &__items {
+            max-height: rem-calc(200px);
+            top: calc(100% + 0.7rem);
+        }
+
+        &__item {
+            @include typography(16px, 400, 16px);
+        }
+
+        &__text {
+            @include typography(14px, 500, 23px);
+        }
     }
 }
 
