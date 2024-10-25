@@ -22,7 +22,7 @@
         <!--Custom dropdown 1-->
         <div class="dropdown">
           <input type="checkbox" id="dropdown1">
-          <label class="dropdown__label" for="dropdown1" onclick="toggleOpenedMenu">
+          <label class="dropdown__label" for="dropdown1">
             <span class="dropdown__text">Choose Currency</span>
             <span class="dropdown__arrow"></span>
           </label>
@@ -33,7 +33,7 @@
         <!--Custom dropdown 2-->
         <div class="dropdown">
           <input type="checkbox" id="dropdown2">
-          <label class="dropdown__label" for="dropdown2" onclick="toggleOpenedMenu"> 
+          <label class="dropdown__label" for="dropdown2"> 
             <span class="dropdown__text">Choose Currency</span>
             <span class="dropdown__arrow"></span>
           </label>
@@ -44,15 +44,13 @@
       <div class="d-flex flex-column chart-wrapper">
         <div class="d-flex flex-column chart-header d-none">
           <div class="d-flex flex-row curr-icons">
-            <span class="currency-flag--1 fi fi-aus"></span>
-            <span class="currency-flag--2 fi fi-dz"></span>
+            <span class="currency-flag--1 fi"></span>
+            <span class="currency-flag--2 fi"></span>
             <span class="label"><span>Forex.com</span></span>
           </div> <!--curr icons-->
           <div class="d-flex flex-row justify-content-between curr-info">
             <span class="currency-label">
-              <span class="currency-label--1"></span>
-              <span>/</span>
-              <span class="currency-label--2"></span>
+              <span class="currency-label--1"></span><span>/</span><span class="currency-label--2"></span>
             </span>
             <span class="exchange-rate">1.2345</span>
           </div> <!--curr info-->
@@ -60,7 +58,9 @@
             <span class="rate-percentage">0,100323923</span>
           </div>
         </div> <!--chart header-->
-        <canvas id="rate-chart"></canvas>
+        <div class="chart-container">
+          <canvas id="rate-chart"></canvas>
+        </div> <!--chart container-->
       </div> <!--chart wrapper-->
     </main>
   </div> <!--container-->

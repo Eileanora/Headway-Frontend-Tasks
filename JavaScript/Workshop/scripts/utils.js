@@ -14,12 +14,13 @@ function loadDropdowns(data) {
 }
 
 // TODO: Not working yet
-function toggleOpenedMenu() {
+function toggleOpenedMenu(currentCheckbox) {
   const openedDropdown = document.querySelector('.dropdown--opened');
   if (openedDropdown) {
     openedDropdown.classList.remove('dropdown--opened');
+    openedDropdown.checked = false;
   }
-  this.classList.toggle('dropdown--opened');
+  currentCheckbox.classList.toggle('dropdown--opened');
 }
 
 function selectCurrency(dropdownItem) {
@@ -39,6 +40,7 @@ function selectCurrency(dropdownItem) {
   currencyDropdownLabel.setAttribute('data-value', currencyCode);
   currencyDropdown.classList.add('dropdown--checked');
   dropdownInput.checked = false;
+  dropdownInput.classList.remove('dropdown--opened');
   toggleSelectedItems(currencyCode, true);
 }
 
@@ -54,7 +56,7 @@ function toggleSelectedItems(currencyCode, selected) {
 }
 
 function getSelectedCurrencies(dropdownItem) {
-  const selectedItems = document.querySelectorAll('.dropdown__item.dropdown--selected');
+  const selectedItems = document.querySelectorAll('.dropdown--checked .dropdown__text');
   return Array.from(selectedItems).map(item => item.getAttribute('data-value'));
 }
 
@@ -69,11 +71,13 @@ function updateUI(selectedCurrencies) {
   const currencyCode1 = selectedCurrencies[0];
   const currencyCode2 = selectedCurrencies[1];
 
-  // not working
+  // working
   addCurrencyFlag(currencyCode1, currencyCode2);
 
-  // not working
+  // working
   updateCurrencyLabel(currencyCode1, currencyCode2);
+
+  // left: update chart and update header text after using time series data
 }
 
 function updateCurrencyLabel(currencyCode1, currencyCode2) {

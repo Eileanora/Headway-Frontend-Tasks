@@ -9,7 +9,10 @@ const data = {
     backgroundColor: 'rgba(177, 214, 192, 0.5)',
     tension: 0,
     pointStyle: false,
-  }]
+  }],
+  options: {
+    maintainAspectRatio: false,
+  }
 };
 
 const config = {
@@ -37,8 +40,8 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   // add event listeners for dropdown items
-  const dropdowns = document.querySelectorAll('.dropdown__item');
-  dropdowns.forEach(item => {
+  const dropdownItems = document.querySelectorAll('.dropdown__item');
+  dropdownItems.forEach(item => {
     item.addEventListener('click', () => {
       selectCurrency(item);
       let selectedCurrencies = getSelectedCurrencies(item);
@@ -46,6 +49,18 @@ window.addEventListener('DOMContentLoaded', () => {
         updateUI(selectedCurrencies);
       }
     })
+  });
+
+  // event listner for input checkbox
+  const checkboxes = document.querySelectorAll('.dropdown input[type="checkbox"]');
+  checkboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', () => {
+      if (checkbox.checked) {
+        toggleOpenedMenu(checkbox);
+      } else {
+        checkbox.classList.remove('dropdown--opened');
+      }
+    });
   });
 
 });
