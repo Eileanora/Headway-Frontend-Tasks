@@ -13,7 +13,6 @@ function loadDropdowns(data) {
   });
 }
 
-// TODO: Not working yet
 function toggleOpenedMenu(currentCheckbox) {
   const openedDropdown = document.querySelector('.dropdown--opened');
   if (openedDropdown) {

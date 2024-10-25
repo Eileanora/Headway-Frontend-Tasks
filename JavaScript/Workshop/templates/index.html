@@ -61,6 +61,13 @@
         <div class="chart-container">
           <canvas id="rate-chart"></canvas>
         </div> <!--chart container-->
+        <div class="d-flex flex-row justify-content-between align-self-center chart-intervals">
+          <span class="interval active" data-interval="15m">15M</span>
+          <span class="interval" data-interval="1h" onclick="getTimeSeries()">1H</span>
+          <span class="interval" data-interval="1d" onclick="getTimeSeries()">1D</span>
+          <span class="interval" data-interval="1w" onclick="getTimeSeries()">1W</span>
+          <span class="interval" data-interval="1M" onclick="getTimeSeries()">1M</span>
+        </div>
       </div> <!--chart wrapper-->
     </main>
   </div> <!--container-->

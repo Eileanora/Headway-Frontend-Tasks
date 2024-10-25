@@ -1,3 +1,8 @@
+// labels are x-axis, representing time
+// data is y-axis, representing exchange rate
+
+// 1- prepare the data 
+
 const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
 const data = {
   labels: labels,

@@ -136,9 +136,31 @@ main {
   aspect-ratio: 2/1;
 }
 
+.chart-intervals {
+  width: 70%;
+  padding-top: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 0.75rem;
+}
+.chart-intervals .interval {
+  border: 0.125rem solid transparent;
+  border-radius: 0.3125rem;
+  padding: 0.25rem 0.6rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.chart-intervals .interval:hover {
+  background-color: rgba(95, 99, 109, 0.5);
+}
+.chart-intervals .active {
+  background-color: #DEE9FC;
+  pointer-events: none;
+}
+
 @media (min-width: 768px) {
   .chart-header {
-    gap: 1rem;
+    gap: 2.5rem;
   }
   .chart-header .label {
     font-size: 0.75rem;
@@ -154,6 +176,12 @@ main {
   .chart-header .rate-percentage {
     font-size: 0.875rem;
     color: #64CA99;
+  }
+  .chart-intervals {
+    font-size: 0.875rem;
+  }
+  .chart-intervals .interval {
+    padding: 0.3rem 0.8rem;
   }
 }
 @media (min-width: 1024px) {
