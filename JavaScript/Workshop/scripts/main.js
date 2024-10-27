@@ -1,37 +1,28 @@
-// labels are x-axis, representing time
-// data is y-axis, representing exchange rate
-
-// 1- prepare the data 
-
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-const data = {
-  labels: labels,
-  datasets: [{
-    label: 'My First Dataset',
-    data: [65, 59, 80, 81, 56, 55, 40],
-    fill: true,
-    borderColor: 'rgb(177, 214, 192)',
-    backgroundColor: 'rgba(177, 214, 192, 0.5)',
-    tension: 0,
-    pointStyle: false,
-  }],
-  options: {
-    maintainAspectRatio: false,
-  }
+const app = {
+  intervals: [
+    { value: "15m", interval: 'minute', period: 1, adjust: (date) => { date.setMinutes(date.getMinutes() - 15); date.setDate(date.getDate() - 1); } },
+    { value: "1h", interval: 'minute', period: 5, adjust: (date) => { date.setHours(date.getHours() - 1); date.setDate(date.getDate() - 1); } },
+    { value: "1d", interval: 'minute', period: 10, adjust: (date) => { date.setDate(date.getDate() - 2)} },
+    { value: "1w", interval: 'hourly', period: 6, adjust: (date) => date.setDate(date.getDate() - 7) },
+    { value: "1M", interval: 'daily', period: 1, adjust: (date) => date.setMonth(date.getMonth() - 1) }
+  ],
 };
 
-const config = {
-  type: 'line',
-  data: data,
-};
-
-
-const ctx = document.getElementById('rate-chart');
-
-new Chart(ctx, config);
-
+// function loadFromLocalStorage(key, value, expiration=0, apiCall) {
+//   let item = localStorage.getItem(key);
+//   if (!item || item === 'undefined' || (item && item['expiration'] != 0)) { // if yes check if we are past the expiration date, store date saved along with expiration to calc
+//     apiCall().then(data => {
+//       localStorage.setItem(key, JSON.stringify(data));
+//       // add expiration her
+//     });
+//   } else {
+//     if 
+//   }
+// }
 
 window.addEventListener('DOMContentLoaded', () => {
+  // create chart
+  const timeSeriesChart = createChart();
   // load data 
   let currencyList = localStorage.getItem('currencyList');
   if (!currencyList || currencyList === 'undefined') {
@@ -52,11 +43,16 @@ window.addEventListener('DOMContentLoaded', () => {
       let selectedCurrencies = getSelectedCurrencies(item);
       if (selectedCurrencies.length === 2) {
         updateUI(selectedCurrencies);
+        const interval = document.querySelector('.interval.active');
+
+        if (interval) {
+          interval.click();
+        }
       }
     })
   });
 
-  // event listner for input checkbox
+  // event listner for input checkboxs
   const checkboxes = document.querySelectorAll('.dropdown input[type="checkbox"]');
   checkboxes.forEach(checkbox => {
     checkbox.addEventListener('change', () => {
@@ -65,6 +61,23 @@ window.addEventListener('DOMContentLoaded', () => {
       } else {
         checkbox.classList.remove('dropdown--opened');
       }
+    });
+  });
+
+  // add event listenrs for intervals 
+  const chartIntervals = document.querySelectorAll('.interval');
+  chartIntervals.forEach(interval => {
+    interval.addEventListener('click', async () => {
+      setActive(interval);
+      const intervalValue = interval.getAttribute('data-interval');
+      console.log(intervalValue);
+      let selectedCurrencies = getSelectedCurrencies(interval);
+      if (selectedCurrencies.length !== 2) {
+        return;
+      }
+      selectedCurrencies = selectedCurrencies.map(currency => currency.toLowerCase()).join('');
+      const newData = await getTimeSeriesData(selectedCurrencies, intervalValue);
+      updateChart(timeSeriesChart, newData);
     });
   });
 

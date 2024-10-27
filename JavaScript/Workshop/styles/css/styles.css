@@ -190,6 +190,9 @@ main {
     justify-content: space-between;
     align-items: center;
   }
+  .chart-wrapper {
+    width: 60%;
+  }
 }
 .dropdown-wrapper {
   flex-direction: column;

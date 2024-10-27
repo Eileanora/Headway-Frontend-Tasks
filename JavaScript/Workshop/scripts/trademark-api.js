@@ -20,6 +20,18 @@ async function loadCurrencyList() {
   }
 }
 
+async function getTimeSeriesApi(params) {
+  try {
+    const response = await apiClient.get('/timeseries', {
+      params: params,
+      format: 'records',
+    });
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 // function errorHandler(error) {
 //   if()
 // }
