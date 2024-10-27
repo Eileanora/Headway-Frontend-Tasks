@@ -96,6 +96,17 @@ main {
   gap: 2rem;
 }
 
+span.fi {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background-size: cover;
+}
+
+.fi.fis {
+  width: 1.5rem !important;
+}
+
 .chart-header {
   gap: 0.7rem;
 }
@@ -199,12 +210,6 @@ main {
   gap: 1rem;
 }
 
-span.fi {
-  width: 1.5rem;
-  height: 1.5rem;
-  border-radius: 50%;
-}
-
 .dropdown {
   position: relative;
   width: 100%;
@@ -278,7 +283,7 @@ span.fi {
   transform: translateY(0);
 }
 .dropdown__item {
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   font-weight: 500;
   line-height: 0.625rem;
   padding: 0.5rem 1rem;
@@ -299,6 +304,28 @@ span.fi {
   opacity: 0.7;
 }
 
+@media (min-width: 768px) {
+  .dropdown-wrapper {
+    gap: 2rem;
+  }
+  .dropdown__label {
+    padding: 0.75rem 1rem;
+  }
+  .dropdown__items {
+    max-height: 12.5rem;
+    top: calc(100% + 0.7rem);
+  }
+  .dropdown__item {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1rem;
+  }
+  .dropdown__text {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.4375rem;
+  }
+}
 @media (min-width: 1024px) {
   .dropdown-wrapper {
     gap: 2rem;

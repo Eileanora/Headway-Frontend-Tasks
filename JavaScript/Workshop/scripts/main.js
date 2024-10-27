@@ -1,4 +1,7 @@
-const app = {
+import { createChart, updateChart, loadDropdowns, selectCurrency, updateUI, toggleOpenedMenu, setActive, getSelectedCurrencies, getTimeSeriesData } from './utils.js';
+import { loadCurrencyList } from './trademark-api.js';
+
+export const app = {
   intervals: [
     { value: "15m", interval: 'minute', period: 1, adjust: (date) => { date.setMinutes(date.getMinutes() - 15); date.setDate(date.getDate() - 1); } },
     { value: "1h", interval: 'minute', period: 5, adjust: (date) => { date.setHours(date.getHours() - 1); date.setDate(date.getDate() - 1); } },

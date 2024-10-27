@@ -1,5 +1,5 @@
-apiKey = 'veFNNK3ewGzdiMCSZ1o0'
-baseUrl = 'https://marketdata.tradermade.com/api/v1'
+const apiKey = 'veFNNK3ewGzdiMCSZ1o0'
+const baseUrl = 'https://marketdata.tradermade.com/api/v1'
 
 const apiClient = axios.create({
   baseURL: baseUrl,
@@ -11,7 +11,7 @@ const apiClient = axios.create({
   },
 })
 
-async function loadCurrencyList() {
+export async function loadCurrencyList() {
   try {
     const response  = await apiClient.get('/live_currencies_list');
     return response.data;
@@ -20,7 +20,7 @@ async function loadCurrencyList() {
   }
 }
 
-async function getTimeSeriesApi(params) {
+export async function getTimeSeriesApi(params) {
   try {
     const response = await apiClient.get('/timeseries', {
       params: params,

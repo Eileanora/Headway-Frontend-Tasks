@@ -1592,11 +1592,11 @@ const dataJSON = {
 const currencyAndSymbol = ['currency', 'symbol'];
 const allSearchParams = currencyAndSymbol.concat(['countryName', 'dateFormat']);
 
-getCurrencyCountry = function(currency) {
+export function getCurrencyCountry(currency) {
   return getISOByParam('currency', currency);
 };
 
-getAllISOCodes = function() {
+function getAllISOCodes() {
     const keys = Object.keys(dataJSON);
 
     return keys.map(function(key) {
@@ -1611,7 +1611,7 @@ getAllISOCodes = function() {
       };
     });
 };
-getAllInfoByISO = function(isoCode) {
+function getAllInfoByISO (isoCode) {
   const iso = isoCode.toUpperCase();
 
     if(dataJSON.hasOwnProperty(iso)) {
@@ -1628,7 +1628,7 @@ getAllInfoByISO = function(isoCode) {
     throw new Error('ISO2 code wasn\'t found');
 };
 
-getParamByISO = function(iso, param) {
+function getParamByISO (iso, param) {
   checkParam(param, allSearchParams);
 
   if(dataJSON.hasOwnProperty(iso.toUpperCase())) {
@@ -1638,7 +1638,7 @@ getParamByISO = function(iso, param) {
   throw new Error('ISO2 code wasn\'t found');
 };
 
-getISOByParam = function(param, value) {
+function getISOByParam (param, value) {
   checkParam(param, allSearchParams);
 
   for(let key in dataJSON) {
@@ -1649,7 +1649,7 @@ getISOByParam = function(param, value) {
   throw new Error(value + ' wasn\'t found in ' + param);
 };
 
-getParamByParam = function(givenParam, givenParamValue, searchParam) {
+function getParamByParam (givenParam, givenParamValue, searchParam) {
   checkParam(givenParam, allSearchParams);
   checkParam(searchParam, allSearchParams);
 
@@ -1661,7 +1661,7 @@ getParamByParam = function(givenParam, givenParamValue, searchParam) {
   throw new Error(givenParam + ' wasn\'t found in ' + givenParamValue);
 };
 
-getAllCountriesByCurrencyOrSymbol = function(param, value) {
+function getAllCountriesByCurrencyOrSymbol (param, value) {
   const countriesArray = [];
 
   checkParam(param, currencyAndSymbol);
@@ -1680,7 +1680,7 @@ getAllCountriesByCurrencyOrSymbol = function(param, value) {
 };
 
 
-getAllISOByCurrencyOrSymbol = function(param, value) {
+function getAllISOByCurrencyOrSymbol (param, value) {
   const ISOArray = [];
 
   checkParam(param, currencyAndSymbol);

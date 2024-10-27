@@ -1,4 +1,8 @@
-function loadDropdowns(data) {
+import { getTimeSeriesApi } from './trademark-api.js';
+import { getCurrencyCountry } from './currency-country.js';
+import { app } from './main.js';
+
+export function loadDropdowns(data) {
   const dropdowns = document.querySelectorAll('.dropdown__items');
   const currencies = data.available_currencies;
 
@@ -13,7 +17,7 @@ function loadDropdowns(data) {
   });
 }
 
-function toggleOpenedMenu(currentCheckbox) {
+export function toggleOpenedMenu(currentCheckbox) {
   const openedDropdown = document.querySelector('.dropdown--opened');
   if (openedDropdown) {
     openedDropdown.classList.remove('dropdown--opened');
@@ -22,7 +26,7 @@ function toggleOpenedMenu(currentCheckbox) {
   currentCheckbox.classList.toggle('dropdown--opened');
 }
 
-function selectCurrency(dropdownItem) {
+export function selectCurrency(dropdownItem) {
   const currencyCode = dropdownItem.getAttribute('data-value');
   const currencyName = dropdownItem.textContent;
   const currencyDropdown = dropdownItem.closest('.dropdown');
@@ -54,13 +58,13 @@ function toggleSelectedItems(currencyCode, selected) {
   });
 }
 
-function getSelectedCurrencies(dropdownItem) {
+export function getSelectedCurrencies(dropdownItem) {
   const selectedItems = document.querySelectorAll('.dropdown--checked .dropdown__text');
   return Array.from(selectedItems).map(item => item.getAttribute('data-value'));
 }
 
 // TODO: UnderDevelopment
-function updateUI(selectedCurrencies) {
+export function updateUI(selectedCurrencies) {
   const header = document.querySelector('.chart-header');
   // working
   if (header.classList.contains('d-none')) {
@@ -87,7 +91,7 @@ function updateCurrencyLabel(currencyCode1, currencyCode2) {
   currencyLabel2.textContent = currencyCode2;
 }
 
-function removeFiClasses(element) {
+export function removeFiClasses(element) {
   element.classList.forEach(className => {
     if (className.startsWith('fi-')) {
       element.classList.remove(className);
@@ -140,7 +144,7 @@ function calculateDates(intervalValue) {
   };
 }
 
-function setActive(interval) {
+export function setActive(interval) {
   const activeInterval = document.querySelector('.interval.active');
   if (activeInterval) {
     activeInterval.classList.remove('active');
@@ -156,7 +160,7 @@ function updateHeaderText(percentage, lastCloseVal) {
   percentageChange.textContent = percentage;
 }
 
-async function getTimeSeriesData(currency, intervalValue) {
+export async function getTimeSeriesData(currency, intervalValue) {
   const dates = calculateDates(intervalValue);
   const params = {
     currency,
@@ -189,7 +193,7 @@ async function getTimeSeriesData(currency, intervalValue) {
   };
 }
 
-function createChart() {
+export function createChart() {
   const data = {
     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
     datasets: [{
@@ -231,7 +235,7 @@ function createChart() {
 
 }
 
-function updateChart(chart, data) {
+export function updateChart(chart, data) {
   console.log(data);
   chart.data.labels = data['labels'];
   chart.data.datasets[0].data = data['data'];

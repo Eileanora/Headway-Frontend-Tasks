@@ -4,11 +4,7 @@
 
 
 }
-span.fi {
-    width: 1.5rem;
-    height: 1.5rem;
-    border-radius: 50%;
-}
+
 .dropdown {
     position: relative;
     width: 100%;
@@ -90,7 +86,7 @@ span.fi {
     }
 
     &__item {
-        @include typography(14px, 500, 10px);
+        @include typography(13px, 500, 10px);
         padding: 0.5rem 1rem;
         border-radius: rem-calc(8px);
         width: 100%;
@@ -104,6 +100,32 @@ span.fi {
         @include typography(12px, 500, 23px);
         opacity: 0.7;
     }
+}
+
+@media (min-width: 768px) {
+    .dropdown-wrapper {
+        gap: 2rem;
+    }
+
+    .dropdown {
+        &__label {
+            padding: 0.75rem 1rem;
+        }
+
+        &__items {
+            max-height: rem-calc(200px);
+            top: calc(100% + 0.7rem);
+        }
+
+        &__item {
+            @include typography(16px, 400, 16px);
+        }
+
+        &__text {
+            @include typography(14px, 500, 23px);
+        }
+    }
+    
 }
 
 @media (min-width: 1024px) {

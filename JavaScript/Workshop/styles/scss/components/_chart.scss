@@ -3,6 +3,17 @@ main {
     gap: 2rem;
 }
 
+span.fi {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background-size: cover;
+}
+
+.fi.fis {
+    width: 1.5rem !important;
+}
+
 .chart-header {
     gap: 0.7rem;
 
