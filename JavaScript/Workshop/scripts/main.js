@@ -1,12 +1,13 @@
-import { createChart, updateChart, loadDropdowns, selectCurrency, updateUI, toggleOpenedMenu, setActive, getSelectedCurrencies, getTimeSeriesData } from './utils.js';
+import { loadDropdowns, selectCurrency, updateUI, toggleOpenedMenu, setActive, getSelectedCurrencies, getTimeSeriesData } from './utils.js';
 import { loadCurrencyList } from './trademark-api.js';
+import { createChart, updateChart } from './chart-utils.js';
 
 export const app = {
   intervals: [
     { value: "15m", interval: 'minute', period: 1, adjust: (date) => { date.setMinutes(date.getMinutes() - 15); date.setDate(date.getDate() - 1); } },
     { value: "1h", interval: 'minute', period: 5, adjust: (date) => { date.setHours(date.getHours() - 1); date.setDate(date.getDate() - 1); } },
-    { value: "1d", interval: 'minute', period: 10, adjust: (date) => { date.setDate(date.getDate() - 2)} },
-    { value: "1w", interval: 'hourly', period: 6, adjust: (date) => date.setDate(date.getDate() - 7) },
+    { value: "1d", interval: 'minute', period: 30, adjust: (date) => { date.setDate(date.getDate() - 2)} },
+    { value: "1w", interval: 'hourly', period: 5, adjust: (date) => date.setDate(date.getDate() - 7) },
     { value: "1M", interval: 'daily', period: 1, adjust: (date) => date.setMonth(date.getMonth() - 1) }
   ],
 };

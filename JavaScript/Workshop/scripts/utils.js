@@ -1,5 +1,6 @@
 import { getTimeSeriesApi } from './trademark-api.js';
 import { getCurrencyCountry } from './currency-country.js';
+import { getSymbolFromCurrency } from './currency-symbol-map.js';
 import { app } from './main.js';
 
 export function loadDropdowns(data) {
@@ -33,7 +34,6 @@ export function selectCurrency(dropdownItem) {
   const currencyDropdownLabel = currencyDropdown.querySelector('.dropdown__text');
   const dropdownInput = currencyDropdown.querySelector('input[type="checkbox"]');
 
-  // remove selected class from any element with the same data-value
   if (currencyDropdownLabel.hasAttribute('data-value')) {
     const previousCurrencyCode = currencyDropdownLabel.getAttribute('data-value');
     toggleSelectedItems(previousCurrencyCode, false);
@@ -63,10 +63,8 @@ export function getSelectedCurrencies(dropdownItem) {
   return Array.from(selectedItems).map(item => item.getAttribute('data-value'));
 }
 
-// TODO: UnderDevelopment
 export function updateUI(selectedCurrencies) {
   const header = document.querySelector('.chart-header');
-  // working
   if (header.classList.contains('d-none')) {
     header.classList.remove('d-none');
   }
@@ -74,13 +72,9 @@ export function updateUI(selectedCurrencies) {
   const currencyCode1 = selectedCurrencies[0];
   const currencyCode2 = selectedCurrencies[1];
 
-  // working
   addCurrencyFlag(currencyCode1, currencyCode2);
-
-  // working
   updateCurrencyLabel(currencyCode1, currencyCode2);
 
-  // left: update chart and update header text after using time series data
 }
 
 function updateCurrencyLabel(currencyCode1, currencyCode2) {
@@ -183,7 +177,7 @@ export async function getTimeSeriesData(currency, intervalValue) {
 
   let change = (chartData.length > 1) ? (chartData[chartData.length - 1] - chartData[0]) / chartData[0] : 0;
   change = `${change.toFixed(7)} (${(change * 100).toFixed(7)}%)`;
-  const lastCloseVal = chartData[chartData.length - 1];
+  const lastCloseVal = getSymbolFromCurrency(currency.slice(-3)) + " " + chartData[chartData.length - 1];
 
   updateHeaderText(change, lastCloseVal);
 
@@ -191,53 +185,4 @@ export async function getTimeSeriesData(currency, intervalValue) {
     labels,
     data: chartData
   };
-}
-
-export function createChart() {
-  const data = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-    datasets: [{
-      label: 'My First Dataset',
-      data: [65, 59, 80, 81, 56, 55, 40],
-      fill: true,
-      borderColor: 'rgb(177, 214, 192)',
-      backgroundColor: 'rgba(177, 214, 192, 0.5)',
-      tension: 0,
-      pointStyle: false,
-    }],
-  };
-
-  const options = {
-    maintainAspectRatio: false,
-    scales: {
-      x: {
-        display: false,
-      },
-      y: {
-        display: false,
-      }
-    },
-    plugins: {
-      legend: {
-          display: false // This hides all text in the legend and also the labels.
-      }
-    }
-  }
-
-  const config = {
-    type: 'line',
-    data: data,
-    options: options,
-  };
-
-  const ctx = document.getElementById('rate-chart');
-  return new Chart(ctx, config);
-
-}
-
-export function updateChart(chart, data) {
-  console.log(data);
-  chart.data.labels = data['labels'];
-  chart.data.datasets[0].data = data['data'];
-  chart.update();
 }

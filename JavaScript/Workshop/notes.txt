@@ -109,3 +109,9 @@ on click - 1D
         // to get YYYY-MM-DD-HH:MM
         2024-10-25T15:25:09.005Z
         d.toISOString().split('T')[0] + '-' + d.toISOString().split('T')[1].split('.')[0]
+
+
+
+
+
+US FLAG NOT LOADING CORRECTLY (wrong code fetched)

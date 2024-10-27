@@ -1,4 +1,4 @@
-module.exports = {
+const currencySymbolMap = {
   AED: 'د.إ',
   AFN: '؋',
   ALL: 'L',

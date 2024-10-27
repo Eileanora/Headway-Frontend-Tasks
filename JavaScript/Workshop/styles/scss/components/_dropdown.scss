@@ -34,7 +34,7 @@
         border-radius: 0.5rem;
         z-index: 1;
         overflow-y: auto;
-        max-height: rem-calc(130px);
+        max-height: rem-calc(160px);
 
         position: absolute;
         left: 0;
@@ -102,6 +102,15 @@
     }
 }
 
+@media (min-width: 520px) and (max-width: 767px) {
+    .dropdown {
+        &__items {
+            max-height: rem-calc(250px);
+            top: calc(100% + 0.7rem);
+        }
+    }
+}
+
 @media (min-width: 768px) {
     .dropdown-wrapper {
         gap: 2rem;
@@ -113,7 +122,7 @@
         }
 
         &__items {
-            max-height: rem-calc(200px);
+            max-height: rem-calc(250px);
             top: calc(100% + 0.7rem);
         }
 
@@ -141,7 +150,7 @@
         }
 
         &__items {
-            max-height: rem-calc(200px);
+            max-height: rem-calc(280px);
             top: calc(100% + 0.7rem);
         }
 
