@@ -154,6 +154,53 @@ function updateHeaderText(percentage, lastCloseVal) {
   percentageChange.textContent = percentage;
 }
 
+const storageHelperFunctions = {
+  setNestedValue: (obj, path, value) => {
+    let keys = path.split('.');
+    let lastKey = keys.pop();
+    let lastObj = keys.reduce((obj, key) => obj[key] = obj[key] || {}, obj);
+    lastObj[lastKey] = value;
+  },
+  getNestedValue: (obj, path) => {
+    return path.split('.').reduce((acc, key) => acc && acc[key], obj);
+  },
+  calcExpiration: (currentDate, expiration) => {
+    // expiration is in format (MM/HH/DD/MM)
+    let [minutes, hours, days, months] = expiration.split('/');
+    let expirationDate = new Date(currentDate);
+    expirationDate.setMinutes(expirationDate.getMinutes() + parseInt(minutes));
+    expirationDate.setHours(expirationDate.getHours() + parseInt(hours));
+    expirationDate.setDate(expirationDate.getDate() + parseInt(days));
+    expirationDate.setMonth(expirationDate.getMonth() + parseInt(months));
+    return expirationDate;
+  },
+};
+
+export async function loadFromLocalStorage(key, apiCall, expirationDuration, ...apiParams) {
+  let forexCurrencyConverter = JSON.parse(localStorage.getItem('forexCurrencyConverter')) || {};
+
+  let item = storageHelperFunctions.getNestedValue(forexCurrencyConverter, key);
+  let data;
+
+  const expdate = storageHelperFunctions.getNestedValue(forexCurrencyConverter, `${key}.expirationDate`);
+  const isExpired = storageHelperFunctions.getNestedValue(forexCurrencyConverter, `${key}.expirationDate`) < (new Date().toISOString());
+  if (!item || item === 'undefined' || isExpired) {
+    const response = await apiCall(...apiParams);
+    const storedData = {
+      data: response,
+      savedDate: new Date(),
+      expirationDate: storageHelperFunctions.calcExpiration(Date.now(), expirationDuration)
+    };
+    storageHelperFunctions.setNestedValue(forexCurrencyConverter, key, storedData);
+    localStorage.setItem('forexCurrencyConverter', JSON.stringify(forexCurrencyConverter));
+    data = response;
+  }
+  if (!data) {
+    data = item.data;
+  }
+  return data;
+}
+
 export async function getTimeSeriesData(currency, intervalValue) {
   const dates = calculateDates(intervalValue);
   const params = {
@@ -162,13 +209,17 @@ export async function getTimeSeriesData(currency, intervalValue) {
   };
 
   console.log(params);
-  let data = localStorage.getItem(`${currency}-${intervalValue}`);
-  if (!data || data === 'undefined') {
-    const response = await getTimeSeriesApi(params);
-    localStorage.setItem(`${currency}-${intervalValue}`, JSON.stringify(response));
-  }
+  const keyPath = `timeSeriesData.${currency}-${intervalValue}`;
+  const expiration = app.intervals.find(interval => interval.value == intervalValue).expiration;
+  let data = await loadFromLocalStorage(keyPath, getTimeSeriesApi, expiration, params);
 
-  data = JSON.parse(localStorage.getItem(`${currency}-${intervalValue}`));
+  // let data = localStorage.getItem(`${currency}-${intervalValue}`);
+  // if (!data || data === 'undefined') {
+  //   const response = await getTimeSeriesApi(params);
+  //   localStorage.setItem(`${currency}-${intervalValue}`, JSON.stringify(response));
+  // }
+
+  // data = JSON.parse(localStorage.getItem(`${currency}-${intervalValue}`));
  
   console.log(data);
   console.log(data.quotes)

@@ -1,43 +1,28 @@
-import { loadDropdowns, selectCurrency, updateUI, toggleOpenedMenu, setActive, getSelectedCurrencies, getTimeSeriesData } from './utils.js';
+import { loadDropdowns, selectCurrency, updateUI, toggleOpenedMenu, setActive, getSelectedCurrencies, getTimeSeriesData, loadFromLocalStorage } from './utils.js';
 import { loadCurrencyList } from './trademark-api.js';
 import { createChart, updateChart } from './chart-utils.js';
 
 export const app = {
   intervals: [
-    { value: "15m", interval: 'minute', period: 1, adjust: (date) => { date.setMinutes(date.getMinutes() - 15); date.setDate(date.getDate() - 1); } },
-    { value: "1h", interval: 'minute', period: 5, adjust: (date) => { date.setHours(date.getHours() - 1); date.setDate(date.getDate() - 1); } },
-    { value: "1d", interval: 'minute', period: 30, adjust: (date) => { date.setDate(date.getDate() - 2)} },
-    { value: "1w", interval: 'hourly', period: 5, adjust: (date) => date.setDate(date.getDate() - 7) },
-    { value: "1M", interval: 'daily', period: 1, adjust: (date) => date.setMonth(date.getMonth() - 1) }
+    { value: "15m", interval: 'minute', period: 1, expiration: '01/00/00/00',
+      adjust: (date) => { date.setMinutes(date.getMinutes() - 15); date.setDate(date.getDate() - 1); } },
+    { value: "1h", interval: 'minute', period: 5, expiration: '05/00/00/00',
+      adjust: (date) => { date.setHours(date.getHours() - 1); date.setDate(date.getDate() - 1); } },
+    { value: "1d", interval: 'minute', period: 30, expiration: '30/00/00/00',
+      adjust: (date) => { date.setDate(date.getDate() - 2)} },
+    { value: "1w", interval: 'hourly', period: 5, expiration: '00/05/00/00',
+      adjust: (date) => date.setDate(date.getDate() - 7) },
+    { value: "1M", interval: 'daily', period: 1, expiration: '00/00/01/00',
+      adjust: (date) => date.setMonth(date.getMonth() - 1) }
   ],
 };
 
-// function loadFromLocalStorage(key, value, expiration=0, apiCall) {
-//   let item = localStorage.getItem(key);
-//   if (!item || item === 'undefined' || (item && item['expiration'] != 0)) { // if yes check if we are past the expiration date, store date saved along with expiration to calc
-//     apiCall().then(data => {
-//       localStorage.setItem(key, JSON.stringify(data));
-//       // add expiration her
-//     });
-//   } else {
-//     if 
-//   }
-// }
-
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', async () => {
   // create chart
   const timeSeriesChart = createChart();
-  // load data 
-  let currencyList = localStorage.getItem('currencyList');
-  if (!currencyList || currencyList === 'undefined') {
-    loadCurrencyList().then(data => {
-      localStorage.setItem('currencyList', JSON.stringify(data));
-      loadDropdowns(data);
-    });
-  } else {
-    const data = JSON.parse(localStorage.getItem('currencyList'));
-    loadDropdowns(data);
-  }
+  // load data
+  let currencyList = await loadFromLocalStorage('currencyList', loadCurrencyList, '00/00/00/01');
+  loadDropdowns(currencyList);
 
   // add event listeners for dropdown items
   const dropdownItems = document.querySelectorAll('.dropdown__item');
