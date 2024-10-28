@@ -176,6 +176,51 @@ const storageHelperFunctions = {
   },
 };
 
+export function toggleErrorAndChart(showError) {
+  const errorWrapper = document.querySelector('.error-wrapper');
+  const chartContainer = document.querySelector('.chart-container');
+
+  if (showError) {
+    errorWrapper.classList.remove('d-none');
+    chartContainer.classList.add('d-none');
+  } else {
+    errorWrapper.classList.add('d-none');
+    chartContainer.classList.remove('d-none');
+  }
+}
+
+function errorHandler(error) {
+  const errorWrapper = document.querySelector('.error-wrapper');
+  const statusMessage = errorWrapper.querySelector('.error-message');
+
+  toggleErrorAndChart(true);
+  let errorMessage;
+  if (error.serverSide) {
+    errorMessage = "An error occurred on the server side. Please try again later.";
+  } else {
+    errorMessage = error.errors;
+  }
+  // errors come in key: value pairs, keep the value and remove any irrelevant information
+  if (typeof errorMessage === 'object') {
+    errorMessage = Object.entries(errorMessage).map(([key, value]) => `${value}`);
+    errorMessage = errorMessage.map(message => {
+      const match = message.match(/[A-Z]/);
+      if (match) {
+        const index = match.index;
+        return message.slice(0, index);
+      }
+      return message;
+    });
+  }
+  if (Array.isArray(errorMessage)) {
+    errorMessage = errorMessage.map(msg => `<li>${msg}</li>`).join('');
+    errorMessage = `<ul class="d-flex flex-column align-items-center gap-1">${errorMessage}</ul>`;
+    statusMessage.innerHTML = errorMessage;
+  } else {
+    statusMessage.textContent = errorMessage;
+  }
+}
+
 export async function loadFromLocalStorage(key, apiCall, expirationDuration, ...apiParams) {
   let forexCurrencyConverter = JSON.parse(localStorage.getItem('forexCurrencyConverter')) || {};
 
@@ -185,15 +230,21 @@ export async function loadFromLocalStorage(key, apiCall, expirationDuration, ...
   const expdate = storageHelperFunctions.getNestedValue(forexCurrencyConverter, `${key}.expirationDate`);
   const isExpired = storageHelperFunctions.getNestedValue(forexCurrencyConverter, `${key}.expirationDate`) < (new Date().toISOString());
   if (!item || item === 'undefined' || isExpired) {
-    const response = await apiCall(...apiParams);
-    const storedData = {
-      data: response,
-      savedDate: new Date(),
-      expirationDate: storageHelperFunctions.calcExpiration(Date.now(), expirationDuration)
-    };
-    storageHelperFunctions.setNestedValue(forexCurrencyConverter, key, storedData);
-    localStorage.setItem('forexCurrencyConverter', JSON.stringify(forexCurrencyConverter));
-    data = response;
+    try {
+      const response = await apiCall(...apiParams);
+      const storedData = {
+        data: response,
+        savedDate: new Date(),
+        expirationDate: storageHelperFunctions.calcExpiration(Date.now(), expirationDuration)
+      };
+      storageHelperFunctions.setNestedValue(forexCurrencyConverter, key, storedData);
+      localStorage.setItem('forexCurrencyConverter', JSON.stringify(forexCurrencyConverter));
+      data = response;
+    } catch (error) {
+      console.log('im working');
+      errorHandler(error);
+      throw new Error(error);
+    }
   }
   if (!data) {
     data = item.data;
@@ -208,21 +259,10 @@ export async function getTimeSeriesData(currency, intervalValue) {
     ...dates
   };
 
-  console.log(params);
   const keyPath = `timeSeriesData.${currency}-${intervalValue}`;
   const expiration = app.intervals.find(interval => interval.value == intervalValue).expiration;
   let data = await loadFromLocalStorage(keyPath, getTimeSeriesApi, expiration, params);
 
-  // let data = localStorage.getItem(`${currency}-${intervalValue}`);
-  // if (!data || data === 'undefined') {
-  //   const response = await getTimeSeriesApi(params);
-  //   localStorage.setItem(`${currency}-${intervalValue}`, JSON.stringify(response));
-  // }
-
-  // data = JSON.parse(localStorage.getItem(`${currency}-${intervalValue}`));
- 
-  console.log(data);
-  console.log(data.quotes)
   let labels = data.quotes.map(entry => entry.date);
   let chartData = data.quotes.map(entry => entry.close);
 

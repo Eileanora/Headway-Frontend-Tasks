@@ -58,9 +58,12 @@
             <span class="rate-percentage">No data yet :(</span>
           </div>
         </div> <!--chart header-->
-        <div class="chart-container">
+        <div class="chart-container d-none">
           <canvas id="rate-chart"></canvas>
         </div> <!--chart container-->
+        <div class="error-wrapper d-flex flex-column align-items-center">
+          <span class="error-message">No data selected yet :(</span>
+        </div>
         <div class="d-flex flex-row justify-content-between align-self-center chart-intervals">
           <span class="interval" data-interval="15m">15M</span>
           <span class="interval" data-interval="1h">1H</span>

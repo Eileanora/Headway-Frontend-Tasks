@@ -1,3 +1,5 @@
+import { toggleErrorAndChart } from './utils.js';
+
 export function createChart() {
   const data = {
     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -41,7 +43,8 @@ export function createChart() {
 }
 
 export function updateChart(chart, data) {
-  console.log(data);
+  toggleErrorAndChart(false);
+
   chart.data.labels = data['labels'];
   chart.data.datasets[0].data = data['data'];
   chart.update();

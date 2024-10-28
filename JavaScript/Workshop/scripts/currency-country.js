@@ -1,4 +1,11 @@
 const dataJSON = {
+  US: {
+    countryName: 'United States',
+    currency: 'USD',
+    symbol: '$',
+    dateFormat: "M/d/yyyy",
+    numericCode: 840,
+  },
   AD: {
     countryName: "Andorra",
     currency: "EUR",
@@ -292,7 +299,7 @@ const dataJSON = {
   },
   CN: {
     countryName: 'China',
-    currency: 'CNY',
+    currency: 'CNY CNY',
     symbol: 'CN¥',
     dateFormat: "yyyy-M-d",
     numericCode: 156,
@@ -612,7 +619,7 @@ const dataJSON = {
   },
   HR: {
     countryName: "Croatia",
-    currency: "EUR",
+    currency: "EUR HRK",
     symbol: "€",
     dateFormat: "dd.MM.yyyy.",
     numericCode: 978,
@@ -664,12 +671,12 @@ const dataJSON = {
     dateFormat: "d/M/yyyy",
     numericCode: 356,
   },
-  IO: {
-    countryName: 'British Indian Ocean Territory',
-    currency: 'USD',
-    symbol: '$',
-    numericCode: 840,
-  },
+  // IO: {
+  //   countryName: 'British Indian Ocean Territory',
+  //   currency: 'USD',
+  //   symbol: '$',
+  //   numericCode: 840,
+  // },
   IQ: {
     countryName: 'Iraq',
     currency: 'IQD',
@@ -1473,13 +1480,6 @@ const dataJSON = {
     symbol: '$',
     numericCode: 840,
   },
-  US: {
-    countryName: 'United States',
-    currency: 'USD',
-    symbol: '$',
-    dateFormat: "M/d/yyyy",
-    numericCode: 840,
-  },
   UY: {
     countryName: 'Uruguay',
     currency: 'UYU',
@@ -1642,7 +1642,8 @@ function getISOByParam (param, value) {
   checkParam(param, allSearchParams);
 
   for(let key in dataJSON) {
-    if(dataJSON.hasOwnProperty(key) && dataJSON[key][param] === value) {
+    const data = dataJSON[key][param].split(' ');
+    if(dataJSON.hasOwnProperty(key) && data.indexOf(value) !== -1) {
       return key;
     }
   }

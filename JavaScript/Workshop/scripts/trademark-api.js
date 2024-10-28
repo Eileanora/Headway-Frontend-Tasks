@@ -26,12 +26,38 @@ export async function getTimeSeriesApi(params) {
       params: params,
       format: 'records',
     });
-    return response.data;
+    if (response.data.error) {
+      throw response;
+    } else {
+      return response.data;
+    }
+
   } catch (error) {
-    console.error(error);
+    return errorHandler(error);
   }
 }
 
-// function errorHandler(error) {
-//   if()
-// }
+function errorHandler(error) {
+  let status, errors, serverSide;
+  if (error.status === 200) {
+    status = error.data.error;
+    errors = error.data.message;
+    serverSide = true;
+  } else {
+    status = error.status;
+    errors = error.response.data.errors;
+    serverSide = false;
+  }
+
+  // add regex to check for 5xx status codes
+  var regex =  /^[5][0-9][0-9]$/
+  if (regex.test(error.status)) {
+    serverSide = true;
+  }
+  // Throw an error to stop the call stack
+  throw {
+    status,
+    errors,
+    serverSide,
+  }
+}

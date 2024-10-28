@@ -68,14 +68,27 @@ span.fi {
     .active {
         background-color: #DEE9FC;
         pointer-events: none;
+    }
+}
 
-        // &:hover {
-        //     background-color: darken($color: #DEE9FC, $amount: 10%);
-        // }
+.error-wrapper {
+    gap: 1rem;
+    margin: 2rem 0;
+    .gap-1 {
+        gap: 1rem;
+    }
+    .error-message {
+        @include typography(12px, 500, 16px);
     }
 }
 
 @media (min-width: 768px) {
+    .error-wrapper {
+        .error-message {
+            @include typography(14px, 500, 16px);
+        }
+    }
+    
     .chart-header {
         gap: 2.5rem;
         .label {
@@ -107,6 +120,16 @@ span.fi {
 
 
 @media (min-width: 1024px) {
+    .error-wrapper {
+        gap: 1.5rem;
+        .gap-1 {
+            gap: 1.5rem;
+        }
+        .error-message {
+            @include typography(16px, 500, 21px);
+        }
+    }
+    
     main {
         flex-direction: row;
         justify-content: space-between;
