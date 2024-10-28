@@ -217,6 +217,7 @@ function errorHandler(error) {
     errorMessage = `<ul class="d-flex flex-column align-items-center gap-1">${errorMessage}</ul>`;
     statusMessage.innerHTML = errorMessage;
   } else {
+    statusMessage.innerHTML = '';
     statusMessage.textContent = errorMessage;
   }
 }
