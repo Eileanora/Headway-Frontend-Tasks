@@ -11,7 +11,7 @@
 
 .header-body {
   @include flex(column, space-between, center);
-  margin-top: rem-calc(36px);
+  margin-top: rem-calc(63px);
 
   h1 {
     @include typography(38px, 900, 48.48px, $white);
@@ -33,7 +33,7 @@
   .arrow {
     position: absolute;
     left: 7.6%;
-    bottom: 3%;
+    bottom: 15%;
   }
 
   .header-scroll-down {
@@ -43,4 +43,9 @@
       @include typography(17px, 700, 18.02px, $white);
     }
   }  
+}
+
+
+@media (min-width: $breakpoint-lg) {
+  
 }

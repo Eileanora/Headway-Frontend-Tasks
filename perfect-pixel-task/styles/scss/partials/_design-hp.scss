@@ -1,0 +1,74 @@
+.design-hp {
+  gap: rem-calc(16px);
+
+  &__header {
+    @include flex(column);
+  
+    .header__icons {
+      @include flex(row, flex-end);
+    }
+
+    .header__title {
+      @include flex(column, null);
+      gap: rem-calc(5px);
+    }
+  
+    .wrapper {
+      @include flex(row, null, center);
+      gap: rem-calc(4px);
+      margin-left: -3px;
+    }
+  
+  }
+
+  &__body {
+    @include flex(column);
+    gap: rem-calc(16px);
+  }
+
+  &__desc {
+    letter-spacing: 0.5px;
+  }
+
+  &__progress {
+    @include flex(column);
+    gap: rem-calc(12px);
+  }
+
+  &__prog-text {
+    @include flex(row, space-between);
+    span {
+      font-weight: 500;
+    }
+  }
+
+  &__prog-bar {
+    @include set-progress-bar(#34A770, #46BD84, 0.1, 1, 32%);
+    @include add-bg-hover(#34A770, 0.1);
+  }
+
+  &__ppl {
+    @include flex(row, null, center);
+    gap: rem-calc(8px);
+
+    .ppl-text {
+      @include typography(12px, 400, 18px, 0.5px);
+    }
+
+    .add-icon {
+      margin-right: 0;
+      margin-left: auto;
+    }
+  }
+
+  .ppl-avatars {
+    img {
+      @include add-border(1.5px, solid, white);
+      border-radius: 50%;
+      
+      &:nth-of-type(n+2) {
+        margin-left: -15px;
+      }
+    }
+  }
+}

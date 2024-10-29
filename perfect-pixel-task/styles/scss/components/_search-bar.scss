@@ -1,0 +1,33 @@
+@mixin set-search-bar($bg-color: null, $bg-opacity: 1) {
+
+  input[type="search"] {
+    background-color: rgba($bg-color, $bg-opacity);
+  }
+}
+
+.search-bar {
+  &.wrapper {
+    position: relative;
+
+    .search-icon {
+      position: absolute;
+      top: 12px;
+      left: 20px;
+    }
+  }
+
+  input[type="search"] {
+    width: 100%;
+    border-radius: rem-calc(200px);
+    border: none;
+    @include add-padding(11px, 20px, 13px, 57px);
+  }
+
+  input[type="search"]::placeholder {
+    @extend %sub-text;
+  }
+
+  input[type="search"]:focus {
+    outline: none;
+  }
+}

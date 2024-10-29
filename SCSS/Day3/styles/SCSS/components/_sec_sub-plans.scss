@@ -1,5 +1,6 @@
 .plan-cards-wrapper {
   @extend %flex-wrap;
+  gap: rem-calc(40px);
   font-family: $font-family-standard;
   .eco-plan, .business-plan {
     background-color: $rise-300;
@@ -7,14 +8,17 @@
 
   .family-plan {
     background-color: $candy-grap-800;
+    color: $white;
   }
 }
 
 .plan-card {
-  @include flex(column, center, center);
-  @include btn(null, $umbra-700, 0, 0, 0, 0, 25px, null, false);
-  padding: rem-calc(36px) rem-calc(0);
+  @include flex(column);
+  @include btn(null, $umbra-700, 36px, 24px, 34px, 24px, 25px, null, false);
   gap: rem-calc(32px);
+
+  @include add-border(1.5px, solid, $umbra-700, 25px);
+  @include add-shadow($black, 10px, 10px, 0, 0);
 }
 
 .plan-header {
@@ -39,22 +43,35 @@
     @extend %mb-17;
   }
 
-  .plan-header::after {
+  &::after {
     content: '';
     width: 100%;
     height: 1px;
     background-color: $umbra-500;
+    margin-top: 1rem;
   }
 }
 
 .plan-body {
   @include flex(column);
-  gap: rem-calc(19px);
+
   .plan-body-li {
-    @include flex(row)
+    @include flex(row);
+    margin-bottom: rem-calc(19px);
+    gap: 3px;
   }
 
-  p {
-    @extend %mb-17;
-  }
+}
+
+.plan-body, .plan-footer {
+  font-weight: 600;
+}
+
+.plan-footer {
+  @include flex(row, center, center);
+  gap: rem-calc(12px);
+  @include add-border(1px, solid, $umbra-700, 15px);
+  padding: rem-calc(15px) 0;
+  line-height: 0;
+  width: 100%;
 }

@@ -1,0 +1,68 @@
+.page-header {
+  width: 100%;
+  .container {
+    @include flex(row, space-between, center);
+    width: 95%;
+    gap: rem-calc(40px);
+    padding: rem-calc(12px) 0;
+  }
+}
+
+.mb-menu {
+  @include add-text-hover(#C4CAD3);
+}
+
+.logo {
+  @include flex(row, null, center);
+  gap: rem-calc(10px);
+  @include typography(12px, 700, 15px);
+  letter-spacing: 0.5px;
+  color: #08A0F7;
+}
+
+#search-form-task {
+  display: none;
+  @include set-search-bar(#F4F7FC);
+  width: 100%;
+}
+
+nav {
+  display: none;
+  margin-left: auto;
+  li a {
+    text-decoration: none;
+    color: rgba($font-color, 0.6);
+    @include add-text-hover($font-color, 0.6);
+  }
+  ul {
+    @include flex(row, null, center);
+    gap: rem-calc(34px);
+  }
+
+  li {
+    @extend %body-text;
+  }
+
+  .active {
+    color: #08A0F7;
+    font-weight: 600;
+    &:hover {
+      color: #08A0F7;
+    }
+  }
+}
+
+
+@media (min-width: 1088px) {
+  nav {
+    display: block;
+  }
+
+  #search-form {
+    display: block;
+  }
+
+  .mb-menu {
+    display: none;
+  }
+}

@@ -1,0 +1,117 @@
+1- header font needs modification mobile size (done)
+2- line height needs to be adjusted for header mobile (done)
+3- drop down items font size needs to be smaller in mobile (done)
+4- flag icons modification (done)
+
+
+// steps
+* store api key securely in .env file and append it to the url
+1- use axios to fetch data from the API
+    apis used: 1- fetch currencies
+               2- fetch time series data
+
+2- call the api to load data into the drop down menu (DONE)
+    * API returns
+        1- currency code (3 chars)
+        2- currency name (country + currency)
+    * set data attribute to the drop down menu to be currency code
+
+when the user selects a currency from the drop down menu    (DONE)
+    1- Check if both currencies are selected
+    2- if yes, get country code for both and set the class name to the flag icon (if class already exists, remove it)
+    3- change the currency code in the label field and mark it as disabled in the drop down menu
+    2- combine both currencies and call the api to get the exchange rate
+
+* if one menu is open, close it when the user clicks on the other menu  (DONE)
+* if one currency is selected in one menu, disable it in the other menu (DONE)
+
+
+/*-----------------------------------------------*/
+Time series
+Params
+
+Description
+
+currency    EURUSD
+start_date  daily - 2019-10-01 (YYYY-MM-DD) | hourly / minute - (YYYY-MM-DD-HH:MM)
+end_date    daily - 2019-10-10 (YYYY-MM-DD) | hourly / minute - (YYYY-MM-DD-HH:MM)
+interval    daily (other choices are - hourly or minute)
+period      Daily Interval equals 1 | Hourly interval, choices are - 1, 2, 4, 6, 8, 24 | Minute interval, choices are - 1, 5, 10, 15, 30
+format      records (other choices are - csv, index, columns, split)
+api_key     Your API key
+
+
+Need to handle: 
+1- last 15 minute
+
+start_date  date.now
+end_date    date.now - 15 min
+interval    Minute
+period      1
+
+2- 1H
+
+start_date  date.now
+end_date    date.now - 1h
+interval    Minute
+period      1
+
+3- 1D
+
+start_date  date.now
+end_date    date.now - 1D
+interval    Minute
+period      ??
+
+4- 1Week
+
+start_date
+end_date
+interval    Hourly
+period
+
+5- 1Month
+
+start_date
+end_date
+interval    Hourly
+period
+
+
+// response format:
+{
+    start_date: 
+    end_date: 
+    request_time:
+    BaseCurrency:
+    QuoteCurrency:
+    quotes: [date, close]
+}
+
+call different functions on different intervals
+on click - 1D
+    send current date and date - 1D in GMT timezone following the following format (YYYY-MM-DD)
+        interval: Minute
+        period: 10 (10 minutes)
+        format: records
+    After calling the api with the response check errors
+    if no errors return the response
+    labels will be quotes[date]
+    y axis will be quotes[close]
+    active class to the selected interval button
+
+    cache the response in the local storage for testing reasons
+
+    Get date with 
+        let d = new Date(); //
+        d.toISOString().split('T')[0] // this will return the date in the format YYYY-MM-DD
+
+        // to get YYYY-MM-DD-HH:MM
+        2024-10-25T15:25:09.005Z
+        d.toISOString().split('T')[0] + '-' + d.toISOString().split('T')[1].split('.')[0]
+
+
+
+
+
+US FLAG NOT LOADING CORRECTLY (wrong code fetched)  (FIXED)

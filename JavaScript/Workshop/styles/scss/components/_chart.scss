@@ -1,0 +1,142 @@
+main {
+    flex-direction: column;
+    gap: 2rem;
+}
+
+span.fi {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background-size: cover;
+}
+
+.fi.fis {
+    width: 1.5rem !important;
+}
+
+.chart-header {
+    gap: 0.7rem;
+
+    .label {
+        background-color: #E9EAEC;
+        border-radius: rem-calc(200px);
+        padding: 0 0.5rem;
+
+        span {
+            @include typography(10px, 500, 10px);
+            color: $secondary-color;
+        }
+    }
+
+    .currency-label,
+    .exchange-rate {
+        @include typography(18px, 800, 20px);
+    }
+
+    .exchange-rate {
+        font-weight: 600;
+    }
+
+    .rate-percentage {
+        @include typography(10px, 700, 10px);
+        color: #64CA99;
+    }
+
+    .curr-icons {
+        gap: rem-calc(10px);
+    }
+}
+
+.chart-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 2/1;
+}
+
+.chart-intervals{
+    width: 70%;
+    padding-top: 0.5rem;
+    @include typography(12px, 700, 12px);
+
+    .interval {
+        @include add-border(2px, solid, transparent, 5px);
+        padding: 0.25rem 0.6rem;
+        @include add-bg-hover($secondary-color, 0.5);
+    }
+
+    .active {
+        background-color: #DEE9FC;
+        pointer-events: none;
+    }
+}
+
+.error-wrapper {
+    gap: 1rem;
+    margin: 2rem 0;
+    .gap-1 {
+        gap: 1rem;
+    }
+    .error-message {
+        @include typography(12px, 500, 16px);
+    }
+}
+
+@media (min-width: 768px) {
+    .error-wrapper {
+        .error-message {
+            @include typography(14px, 500, 16px);
+        }
+    }
+    
+    .chart-header {
+        gap: 2.5rem;
+        .label {
+            font-size: rem-calc(12px);
+            padding: 0.01rem 0.8rem;
+            span {
+                line-height: rem-calc(20px);
+            };
+        }
+    
+        .currency-label,
+        .exchange-rate {
+            font-size: rem-calc(24px);
+        }
+    
+        .rate-percentage {
+            font-size: rem-calc(14px);
+            color: #64CA99;
+        }
+    }
+
+    .chart-intervals {
+        font-size: rem-calc(14px);
+        .interval {
+            padding: 0.3rem 0.8rem;
+        }
+    }
+}
+
+
+@media (min-width: 1024px) {
+    .error-wrapper {
+        gap: 1.5rem;
+        .gap-1 {
+            gap: 1.5rem;
+        }
+        .error-message {
+            @include typography(16px, 500, 21px);
+        }
+    }
+    
+    main {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .chart-wrapper {
+        width: 60%;
+    }
+}

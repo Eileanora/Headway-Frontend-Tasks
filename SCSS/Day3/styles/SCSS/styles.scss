@@ -1,6 +1,6 @@
 @import './utils/reset', './utils/variables', './utils/mixins', './utils/functions', './utils/placeholders';
 @import './components/header', './components/common', './components/sec_trips', './components/sec_features';
-@import './components/sec_sub-plans';
+@import './components/sec_sub-plans', './components/feedback', './components/feedback', './components/contact-us', './components/_footer';
 
 body {
   font-family: $font-family;

@@ -18,6 +18,10 @@
   margin-top: rem-calc(76px);
 }
 
+.mb-dp-n {
+  display: none;
+}
+
 .sec-header {
   .sec-subtitle {
     @extend %mb-sec-subtitle;
@@ -32,3 +36,27 @@
   }
 }
 
+@media (min-width: $breakpoint-lg) {
+  .lg-db {
+    display: block !important;
+  }
+
+  .mb-dp-n {
+    display: none !important;
+  }
+
+  // .sec-header {
+  //   .sec-subtitle {
+  //     @extend %lg-section-subtitle;
+  //   }
+    
+  //   .sec-title {
+  //     @extend %lg-section-title;
+  //   }
+  // }
+
+  // .font-24 {
+  //   @extend %lg-h4;
+  // }
+  
+}

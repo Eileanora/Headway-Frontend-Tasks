@@ -1,0 +1,83 @@
+// .contact .container {
+//   @extend %flex-wrap;
+// }
+
+.contact > .container {
+  @extend %flex-wrap;
+  gap: rem-calc(40px);
+}
+
+#contact-form {
+  @include flex(column);
+  width: 100%;
+
+  @include btn($rise-300, $umbra-700, 36px, 24px, 34px, 24px, 25px, null, false);
+  gap: rem-calc(24px);
+
+  @include add-border(1.5px, solid, $umbra-700, 25px);
+  @include add-shadow($black, 10px, 10px, 0, 0);
+}
+
+.contact-form-group {
+  @include flex(column);
+  gap: rem-calc(14px);
+
+  label {
+    @extend %mb-h4;
+  }
+
+  input[type="text"], input[type="email"], textarea {
+    @include typography(16px, 400, 16.16px, $umbra-700);
+    @include add-border(1.5px, solid, $umbra-700, 15px);
+    font-family: $font-family-standard;
+    padding: rem-calc(15px) rem-calc(12px);
+    width: 100%;
+
+    &::placeholder {
+      @extend %mb-17;
+      color: $umbra-3oo;
+    }
+  }
+
+  textarea {
+    height: rem-calc(120px);
+  }
+
+  button {
+    @include btn($umbra-700, $white, 12px, 30px, 12px, 24px, 15px, null, true);
+    @extend %mb-17;
+    font-family: $font-family;
+  }
+}
+
+.contact-details {
+  @extend %flex-wrap;
+  gap: rem-calc(40px);
+}
+
+.contact-details-item {
+  @extend %flex-wrap;
+  h4 {
+    @extend %mb-h4;
+    margin-bottom: rem-calc(20px);
+    color: $umbra-700;
+  }
+  img {
+    width: 140px;
+    margin-bottom: rem-calc(28px);
+  }
+  p {
+    @extend %mb-17;
+    font-family: $font-family-standard;
+    color: $umbra-500;
+  }
+
+  .link {
+    cursor: pointer;
+    color: $candy-grap-600;
+  }
+
+  .contact-details-item-txt {
+    text-align: center;
+  }
+}
