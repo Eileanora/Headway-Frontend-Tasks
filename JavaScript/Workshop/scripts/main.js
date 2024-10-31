@@ -15,7 +15,21 @@ export const app = {
     { value: "1M", interval: 'daily', period: 1, expiration: '00/00/01/00',
       adjust: (date) => date.setMonth(date.getMonth() - 1) }
   ],
+
+  DOMElements : {
+    dropdowns: document.getElementsByClassName('.dropdown'),
+    rateChartContainer: document.getElementsByClassName('.chart-container'),
+    rateChartHeader: document.getElementsByClassName('.chart-header'),
+    errorWrapper: document.getElementsByClassName('.error-wrapper'),
+  },
 };
+
+export const DOMChildElements = {
+  dropdownItemsList: app.DOMElements.dropdowns.getElementsByClassName('.dropdown-items'),
+  currencyIcons: app.DOMElements.rateChartHeader.getElementsByClassName('.curr-icons.fi'),
+  currencyLabels: app.DOMElements.rateChartHeader.getElementsByClassName('.currency-label.currency-label__text'),
+  intervals: app.DOMElements.rateChartContainer.getElementsByClassName('.interval'),
+}
 
 window.addEventListener('DOMContentLoaded', async () => {
   // create chart
@@ -25,14 +39,14 @@ window.addEventListener('DOMContentLoaded', async () => {
   loadDropdowns(currencyList);
 
   // add event listeners for dropdown items
-  const dropdownItems = document.querySelectorAll('.dropdown__item');
+  const dropdownItems = DOMChildElements.dropdownItemsList.querySelectorAll('.dropdown-item');
   dropdownItems.forEach(item => {
     item.addEventListener('click', () => {
       selectCurrency(item);
       let selectedCurrencies = getSelectedCurrencies(item);
       if (selectedCurrencies.length === 2) {
         updateUI(selectedCurrencies);
-        const interval = document.querySelector('.interval.active');
+        const activeIntervals = app.intervals.filter(interval => interval.classList.includes('.active')); 
 
         if (interval) {
           interval.click();
@@ -42,7 +56,8 @@ window.addEventListener('DOMContentLoaded', async () => {
   });
 
   // event listner for input checkboxs
-  const checkboxes = document.querySelectorAll('.dropdown input[type="checkbox"]');
+  // const checkboxes = document.querySelectorAll('.dropdown input[type="checkbox"]');
+  const checkboxes = app.DOMElements.dropdowns.querySelectorAll('input[type="checkbox"]');
   checkboxes.forEach(checkbox => {
     checkbox.addEventListener('change', () => {
       if (checkbox.checked) {
@@ -54,7 +69,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   });
 
   // add event listenrs for intervals 
-  const chartIntervals = document.querySelectorAll('.interval');
+  const chartIntervals = DOMChildElements.intervals.intervals;
   chartIntervals.forEach(interval => {
     interval.addEventListener('click', async () => {
       setActive(interval);

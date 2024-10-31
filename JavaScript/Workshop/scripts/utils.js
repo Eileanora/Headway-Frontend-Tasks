@@ -1,10 +1,11 @@
 import { getTimeSeriesApi } from './trademark-api.js';
 import { getCurrencyCountry } from './currency-country.js';
 import { getSymbolFromCurrency } from './currency-symbol-map.js';
-import { app } from './main.js';
+import { app, DOMChildElements } from './main.js';
 
 export function loadDropdowns(data) {
-  const dropdowns = document.querySelectorAll('.dropdown__items');
+  // const dropdowns = document.querySelectorAll('.dropdown__items');
+  const dropdowns = Domc.dropdownItemsList;
   const currencies = data.available_currencies;
 
   dropdowns.forEach(dropdownItems => {
@@ -19,7 +20,7 @@ export function loadDropdowns(data) {
 }
 
 export function toggleOpenedMenu(currentCheckbox) {
-  const openedDropdown = document.querySelector('.dropdown--opened');
+  const openedDropdown = document.querySelector('.dropdown--opened'); /* ------------------------------------------- */
   if (openedDropdown) {
     openedDropdown.classList.remove('dropdown--opened');
     openedDropdown.checked = false;
@@ -48,7 +49,8 @@ export function selectCurrency(dropdownItem) {
 }
 
 function toggleSelectedItems(currencyCode, selected) {
-  const dropdownItems = document.querySelectorAll(`.dropdown__item[data-value="${currencyCode}"]`);
+  // const dropdownItems = document.querySelectorAll(`.dropdown__item[data-value="${currencyCode}"]`);
+  const dropdownItems = DOMChildElements.dropdownItemsList.querySelectorAll(`.dropdown__item[data-value="${currencyCode}"]`);
   dropdownItems.forEach(item => {
     if (selected) {
       item.classList.replace('dropdown--active', 'dropdown--selected');
@@ -59,12 +61,14 @@ function toggleSelectedItems(currencyCode, selected) {
 }
 
 export function getSelectedCurrencies(dropdownItem) {
-  const selectedItems = document.querySelectorAll('.dropdown--checked .dropdown__text');
+  // const selectedItems = document.querySelectorAll('.dropdown--checked .dropdown__text');
+  const selectedItems = app.DOMElements.dropdowns.querySelectorAll('.dropdown--checked .dropdown__text');
   return Array.from(selectedItems).map(item => item.getAttribute('data-value'));
 }
 
 export function updateUI(selectedCurrencies) {
-  const header = document.querySelector('.chart-header');
+  // const header = document.querySelector('.chart-header');
+  const header = app.DOMElements.rateChartHeader;
   if (header.classList.contains('d-none')) {
     header.classList.remove('d-none');
   }
@@ -78,8 +82,9 @@ export function updateUI(selectedCurrencies) {
 }
 
 function updateCurrencyLabel(currencyCode1, currencyCode2) {
-  const currencyLabel1 = document.querySelector('.currency-label--1');
-  const currencyLabel2 = document.querySelector('.currency-label--2');
+  // const currencyLabel1 = document.querySelector('.currency-label--1');
+  // const currencyLabel2 = document.querySelector('.currency-label--2');
+  const [currencyLabel1, currencyLabel2] = DOMChildElements.currencyLabels;
 
   currencyLabel1.textContent = currencyCode1;
   currencyLabel2.textContent = currencyCode2;
@@ -94,8 +99,9 @@ export function removeFiClasses(element) {
 }
 
 function addCurrencyFlag(currencyCode1, currencyCode2) {
-  const currencyFlag1 = document.querySelector('.currency-flag--1');
-  const currencyFlag2 = document.querySelector('.currency-flag--2');
+  // const currencyFlag1 = document.querySelector('.currency-flag--1');
+  // const currencyFlag2 = document.querySelector('.currency-flag--2');
+  const [currencyFlag1, currencyFlag2] = DOMChildElements.currencyIcons;
 
   const alpha2Code1 = getCurrencyCountry(currencyCode1);
   const alpha2Code2 = getCurrencyCountry(currencyCode2);
@@ -139,7 +145,8 @@ function calculateDates(intervalValue) {
 }
 
 export function setActive(interval) {
-  const activeInterval = document.querySelector('.interval.active');
+  // const activeInterval = document.querySelector('.interval.active');
+  const activeInterval = DOMChildElements.intervals.querySelector('.interval.active');
   if (activeInterval) {
     activeInterval.classList.remove('active');
   }
@@ -147,8 +154,10 @@ export function setActive(interval) {
 }
 
 function updateHeaderText(percentage, lastCloseVal) {
-  const lastExchangeRate = document.querySelector('.exchange-rate');
-  const percentageChange = document.querySelector('.rate-percentage');
+  // const lastExchangeRate = document.querySelector('.exchange-rate');
+  // const percentageChange = document.querySelector('.rate-percentage');
+  const [lastExchangeRate, percentageChange] = app.DOMElements.rateChartHeader
+                                                .querySelectorAll('.exchange-rate, .rate-percentage');
 
   lastExchangeRate.textContent = lastCloseVal;
   percentageChange.textContent = percentage;
@@ -177,8 +186,9 @@ const storageHelperFunctions = {
 };
 
 export function toggleErrorAndChart(showError) {
-  const errorWrapper = document.querySelector('.error-wrapper');
-  const chartContainer = document.querySelector('.chart-container');
+  const errorWrapper = app.DOMElements.errorWrapper;
+  const chartContainer = app.DOMElements.rateChartContainer;
+  // const [errorWrapper, chartContainer] = app.rateChartWrapper.querySelectorAll('.error-wrapper, .chart-container')
 
   if (showError) {
     errorWrapper.classList.remove('d-none');
@@ -190,9 +200,8 @@ export function toggleErrorAndChart(showError) {
 }
 
 function errorHandler(error) {
-  const errorWrapper = document.querySelector('.error-wrapper');
+  const errorWrapper = app.DOMElements.errorWrapper;
   const statusMessage = errorWrapper.querySelector('.error-message');
-
   toggleErrorAndChart(true);
   let errorMessage;
   if (error.serverSide) {

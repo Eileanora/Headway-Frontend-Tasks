@@ -50,7 +50,7 @@ function errorHandler(error) {
   }
 
   // add regex to check for 5xx status codes
-  var regex =  /^[5][0-9][0-9]$/
+  const regex =  /^[5][0-9][0-9]$/
   if (regex.test(error.status)) {
     serverSide = true;
   }

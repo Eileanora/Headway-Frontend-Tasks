@@ -1,4 +1,5 @@
 import { toggleErrorAndChart } from './utils.js';
+import { app } from './main.js';
 
 export function createChart() {
   const data = {
@@ -37,7 +38,8 @@ export function createChart() {
     options: options,
   };
 
-  const ctx = document.getElementById('rate-chart');
+  // const ctx = document.getElementById('rate-chart');
+  const ctx = app.DOMElements.rateChartContainer.querySelector('#rate-chart');
   return new Chart(ctx, config);
 
 }
